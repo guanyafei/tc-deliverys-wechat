@@ -1,0 +1,8 @@
+/**index.wxss**/
+@import "/wxParse/wxParse.wxss";
+.introduce{
+  min-height: 100vh;
+  background: #FFFFFF;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+}

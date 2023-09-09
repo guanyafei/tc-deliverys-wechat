@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "message":"/components/message/index",
+    "address":"/components/usefulAddress/index" 
+  }
+}

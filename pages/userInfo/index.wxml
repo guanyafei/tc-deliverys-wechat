@@ -1,0 +1,53 @@
+<!--index.wxml-->
+<view class="user-info">
+  <message wx:if="{{userType == '0'}}" msg="{{tip}}"></message>
+  <view class="user-type">
+    <view class="user-type-left">
+      <image wx:if="{{userType == '0'}}" src="../../assets/images/jj@2x.png"></image>
+      <image wx:if="{{userType == '1'}}" src="../../assets/images/sj@2x.png"></image>
+      <text  wx:if="{{userType == '0'}}">寄件人</text>
+      <text  wx:if="{{userType == '1'}}">收件人</text>
+      <text>{{title}}</text>
+    </view>
+    <view class="user-type-right" bindtap="clear">
+      <image src="../../assets/images/clear@2x.png"></image> 
+    </view>
+  </view>
+  <view class="info-item">
+     <view class="item {{tools.checkIsHasKey(errIndexList,'1') || tools.checkIsHasKey(errIndexList,'2') ?'error-active':''}}">
+        <input class="name" type="text" maxlength="50" model:value="{{params.name}}" data-index="1" bindinput="getCheck" placeholder="请输入姓名" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 28rpx;"/>
+        <view class="tel-box">
+          <input class="phone" type="number" model:value="{{params.phone}}" maxlength="11"  data-index="2" bindinput="getCheck" placeholder="电话/手机号码" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 28rpx;margin-left:26rpx;"/>
+          <view class="line" wx:if="{{zoneFlag}}"></view>
+          <input class="zone-code" type="number" wx:if="{{zoneFlag}}" model:value="{{params.landline_number}}" data-index="3" bindinput="getCheck" maxlength="4" placeholder="分机号码" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 28rpx"/>
+        </view>
+        <view class="error-box">
+          <view class="{{tools.checkIsHasKey(errIndexList,'1')?'error':'error-hide '}}" >姓名不允许包含特殊符号及空格！</view>
+          <view class="{{tools.checkIsHasKey(errIndexList,'2')?'error error2':'error-hide '}}">号码格式有误，请重新输入！</view>
+        </view>
+     </view>
+     <view class="item {{tools.checkIsHasKey(errIndexList,'4')?'error-active':''}}" bindtap="showAddress">
+        <input  class="name"  type="text" model:value="{{alladders}}" placeholder="省（直辖市）/市/区（县）" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 28rpx;"  disabled="true" />
+        <image class="img" src="../../assets/images/go-r@2x.png"></image>
+     </view>
+     <view class="item {{tools.checkIsHasKey(errIndexList,'5')?'error-active':''}}">
+        <input class="name" type="text" model:value="{{params.book_address}}" maxlength="200"  data-index="5" bindinput="getCheck" placeholder="详细地址  例如：霄云路26号" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 28rpx;"/>
+        <view class="error">只允许包含“-”或“#”</view>
+     </view>
+     <view class="item  {{tools.checkIsHasKey(errIndexList,'6')?'error-active':''}}">
+        <input class="name" type="text" model:value="{{params.consumer_name}}" maxlength="100" data-index="6" bindinput="getCheck" placeholder="公司名称（选填）" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 28rpx;"/>
+        <view class="error">公司名称不允许包含特殊符号,中/英文下括号除外！</view>
+     </view>
+     <view class="item select-wrap">
+      <view class="select-left" bindtap="onSetDefault">
+        <image class="select-address" src="{{isSaveToAddress=='1'?'../../assets/images/select1@2x.png':'../../assets/images/select_1@2x.png'}}"></image>
+        <text class="tip">保存到地址簿</text>
+      </view>
+     </view>
+  </view>
+  <view class="user-bottom" bindtap="save">
+    <view class="btn active">确定</view>
+  </view>
+  <address wx:if="{{showAddress}}"  addersObj="{{addersObj}}" bindcloseAddress="closeAddress" bindgetAddress="getAddress"></address>
+</view>
+<wxs src="../../utils/check.wxs" module="tools" />

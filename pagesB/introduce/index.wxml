@@ -1,0 +1,6 @@
+<!--index.wxml 产品介绍、包装服务介绍、签单返还介绍、保价服务介绍、电子契约、隐私政策、服务条款-->
+<view class="introduce ql-editor">
+  <!-- <rich-text nodes="{{desc}}"></rich-text> -->
+<import src="../../wxParse/wxParse.wxml"/>
+  <template is="wxParse" data="{{wxParseData:art.nodes}}" />
+</view>

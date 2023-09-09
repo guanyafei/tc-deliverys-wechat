@@ -1,0 +1,148 @@
+/**index.wxss**/
+.my{
+  background: #F2F3F7;
+  height: 100vh;
+}
+.my .banner{
+  width: 100%;
+  height: 443rpx;
+  background: linear-gradient(140deg, #8FACFB 0%, #708EF8 12%, #466FED 100%);
+  margin-bottom: 94rpx;
+}
+.my .banner::after{
+  content: "";
+  width: 100%;
+  height: 44rpx;
+  background: #466FED;
+  border-radius: 50%;
+  position: absolute;
+  top: 420rpx;
+}
+.my .banner .login-wrap{
+  margin-left: 36rpx;
+  display: flex;
+  align-items: center;
+  padding-top: 150rpx;
+}
+.my .banner .login-wrap .logo,.my .banner .login-wrap .login-left{
+  width: 144rpx;
+  height: 144rpx;
+}
+.my .banner .login-wrap .login-left{
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #fff;
+}
+.my .banner .login-wrap .no-login{
+  display: flex;
+}
+.my .banner .login-wrap .no-login .login,.my .banner .login-wrap .no-login .register{
+  font-size: 36rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+.my .banner .login-wrap .no-login .login{
+  margin-left: 28rpx;
+}
+.my .banner .login-wrap .no-login .register{
+  margin-left: 24rpx;
+}
+.my .banner .login-wrap .have-login{
+  display: flex;
+  flex-direction: column;
+  margin-left: 28rpx;
+}
+.my .banner .login-wrap .have-login .tel{
+  font-size: 36rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+}
+.my .banner .login-wrap .have-login .company{
+  font-size: 24rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+  margin-top: 12rpx;
+}
+.my .banner .login-wrap .have-login .status{
+  width: 116rpx;
+  height: 42rpx;
+  margin-left: 40rpx;
+}
+.my .banner .my-center{
+  width: 718rpx;
+  height: 152rpx;
+  background: #FFFFFF;
+  box-shadow: 0 4rpx 12rpx 0 rgba(214, 214, 214, 0.5);
+  border-radius: 16rpx;
+  margin: 70rpx auto 0;    
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+.my .banner .item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.my .banner .item .img{
+  width: 44rpx;
+  height: 50rpx;
+}
+.my .banner .item .name{
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: rgba(47, 47, 47, 0.6);
+  margin-top: 14rpx;
+}
+.my .service{
+  margin: 18rpx 0 20rpx 38rpx;
+}
+.my .service-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 718rpx;
+  height: 112rpx;
+  background: #FFFFFF;
+  border-radius: 10rpx;
+  margin-bottom: 12rpx;
+  margin: 0 auto 24rpx;
+  padding: 0 28rpx 0 24rpx;
+  box-sizing: border-box;
+}
+.my .service-item .service-item-left{
+  display: flex;
+  align-items: center;
+}
+.my .service-item .service-item-left .img{
+  width: 24rpx;
+  height: 28rpx;
+}
+.my .service-item .service-item-left .name{
+  font-size: 28rpx;
+  font-family: Helvetica;
+  color: #222222;
+  margin-left: 20rpx;
+}
+.my .service-item .service-item-right{
+  width: 16rpx;
+  height: 26rpx;
+}
+.my .service-item:nth-of-type(4) .service-item-left .img{
+  width: 32rpx;
+  height: 24rpx;
+}
+.my .service-item:nth-of-type(5) .service-item-left .img{
+  width: 34rpx;
+  height: 34rpx;
+}

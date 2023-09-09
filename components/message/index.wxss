@@ -1,0 +1,11 @@
+/**index.wxss**/
+.message{
+  background: #FFEFDD;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16rpx 60rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #F38B00;
+}

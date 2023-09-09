@@ -1,0 +1,26 @@
+<!--index.wxml-->
+<view class="route">
+  <block wx:if="{{packageRouteInfo.length>0}}">
+  <block wx:key="index" wx:for="{{packageRouteInfo}}">
+    <view class="route-item"  wx:key="index" wx:for="{{packageRouteInfo[index]}}">
+      <view class="route-item-left">
+        <view class="route-item-year">{{tools.formatMd(item.createTime)}}</view>
+        <view class="route-item-time">{{tools.formatHM(item.createTime)}}</view>
+      </view>
+      <view class="route-item-center">
+        <image wx:if="{{item.status == 1 || item.status == 3 || item.status == 7 || item.status == 10 || item.status == 8 || item.status == 11}}" src="{{tools.setStatusImg(item.status,index)}}"></image>
+        <view wx:else class="dot {{index==0?'active':''}}"></view>
+      </view>
+      <view class="route-item-right {{index==0?'active':''}}">
+        <view class="route-item-right-top">{{tools.setRouteStatus(item.status)}}</view>
+        <view class="route-item-right-bottom">{{item.routeContent}}</view>
+      </view>
+    </view>
+  </block>
+  </block>
+
+  <block wx:else>
+    <view  class="no-data">暂无路由信息</view>
+  </block>
+</view>
+<wxs src="../../utils/check.wxs" module="tools" />

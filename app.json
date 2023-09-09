@@ -1,0 +1,93 @@
+{
+  "pages":[
+    "pages/home/index",
+    "pages/my/index",
+    "pages/query/index",
+    "pages/order/index",
+    "pages/userInfo/index",
+    "pages/goods/index",
+    "pages/contraband/index",
+    "pages/success/index",
+    "pages/paySuccess/index",
+    "pages/pay/index",
+    "pages/codePay/index",
+    "pages/itemType/index"
+  ],
+  "subPackages": [
+    {
+      "root": "pagesB",
+      "pages": [
+        "insured/index",
+        "valueAdded/index",
+        "detail/index",
+        "personal/index",
+        "authenticate/index",
+        "login/index",
+        "register/index",
+        "codeLogin/index",
+        "service/index",
+        "introduce/index",
+        "serviceArea/index",
+        "news/index",
+        "aging/index",
+        "privacy/index",
+        "forget/index"
+      ]
+    },
+    {
+      "root": "pagesC",
+      "pages": [
+        "addressBook/index",
+        "addressBookList/index",
+        "userManagement/index",
+        "invoice/index",
+        "invoiceImg/index",
+        "invoiceApply/index",
+        "invoiceDetail/index",
+        "invoiceOrderList/index",
+        "invoiceHeader/index",
+        "invoiceHeaderDetail/index",
+        "invoiceSuccess/index",
+        "invoiceHeaderList/index",
+        "sendAddress/index",
+        "sendAddressApply/index",
+        "sendAddressMove/index"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#9B9696",
+    "selectedColor": "#466FED",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "寄件",
+        "iconPath": "assets/images/jj-wei@2x.png",
+        "selectedIconPath": "assets/images/jj-xuan@2x.png"
+      },
+      {
+        "pagePath": "pages/query/index",
+        "text": "运单追踪",
+        "iconPath": "assets/images/cx-wei@2x.png",
+        "selectedIconPath": "assets/images/cx-xuan@2x.png"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "我的",
+        "iconPath": "assets/images/my-wei@2x.png",
+        "selectedIconPath": "assets/images/my-xuan@2x.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "onReachBottomDistance":100
+}

@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "下单寄件",
+  "usingComponents": {
+    "message":"/components/message/index",
+    "timer":"/components/timer/index",
+    "payType":"/components/payType/index",
+    "spendDetail":"/components/spendDetail/index"
+  }
+}

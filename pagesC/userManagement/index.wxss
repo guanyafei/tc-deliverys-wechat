@@ -1,0 +1,148 @@
+/**index.wxss**/
+.management{
+  min-height: 100vh;
+  background: #F2F3F7;
+  position: relative;
+}
+.management .user-type{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:24rpx 28rpx 0;
+  background-color: #fff;
+}
+.management .user-type-left{
+  display: flex;
+  align-items: center;
+}
+.management .user-type-left text{
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #2F2F2F;
+}
+.management .user-type-right image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 8rpx;
+  vertical-align: middle;
+}
+.management .info-item{
+  padding: 0 28rpx;
+  background-color: #fff;
+}
+.management .info-item .item{
+  height: 120rpx;
+  border-bottom: 2rpx solid #D7D7D7;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.management .info-item .item .img{
+  width: 14rpx;
+  height: 24rpx;
+}
+.management .info-item .item .name{
+  flex: 1;
+}
+.management .info-item .item  input{
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #2F2F2F;
+}
+.management .info-item  .tel-box{
+  display: flex;
+  align-items: center;
+}
+.management .info-item  .tel-box .line{
+  width: 46rpx;
+  border-top: 2rpx solid #979797;
+  margin: 0 24rpx;
+}
+.management .info-item  .tel-box .phone{
+  width: 190rpx;
+  text-align: right;
+}
+.management .info-item  .tel-box .zone-code{
+  width: 116rpx;
+}
+.management .info-item  .error-active{
+  border-bottom-color: #E50808;
+}
+.management .info-item  .item .error{
+  position: absolute;
+  bottom: -32rpx;
+  left: 0;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #E50808;
+  display: none;
+}
+.management .info-item  .item .error-box .error-hide{
+  display: none;
+}
+.management .info-item  .item .error.error2{
+  left: inherit;
+  right: 0;
+}
+.management .info-item  .error-active .error{
+ display: block;
+}
+.management .info-item  .tel-box .zone-code{
+  width: 116rpx;
+}
+.management .info-item .select-wrap{
+  height: 84rpx;
+  border-bottom: none;
+  justify-content: space-between;
+}
+.management .info-item .select-wrap .select-left{
+  display: flex;
+  align-items: center;
+  height: 50rpx;
+}
+.management .info-item .select-wrap .select-address{
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 14rpx;
+  vertical-align: middle;
+  margin-top: 2rpx;
+}
+.management .info-item .select-wrap .to-receive{
+  margin-left: 60rpx;
+  height: 50rpx;
+}
+.management .info-item .select-wrap .tip{
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(47, 47, 47, 0.8);
+}
+.management .info-item .select-wrap .select-right{
+ display: flex;
+ align-items: center;
+}
+.management .btn{
+  width: 638rpx;
+  height: 96rpx;
+  position: absolute;
+  bottom: 18rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(186, 210, 255, 1);
+  border-radius: 54rpx;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 96rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+.management .btn.active{
+  background: rgba(50, 96, 235, 1);
+}

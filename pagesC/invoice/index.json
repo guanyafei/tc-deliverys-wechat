@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "申请开票",
+  "usingComponents": {
+    "invoiceItem":"/components/invoiceItem/index", 
+    "invoiceRecord":"/components/invoiceRecord/index", 
+    "invoiceHeader":"/components/invoiceHeader/index" 
+  }
+}

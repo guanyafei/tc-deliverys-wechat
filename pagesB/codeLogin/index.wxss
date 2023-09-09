@@ -1,0 +1,153 @@
+/**index.wxss**/
+.code-login{
+  min-height: 100vh;
+  background:#FFFFFF;
+  padding: 332rpx 56rpx 68rpx;
+  box-sizing: border-box;
+}
+.code-login .tip{
+  font-size: 48rpx;
+  font-family: PingFangHK-Medium, PingFangHK;
+  font-weight: 500;
+  color: #466FED;
+}
+.code-login  .login-account{
+  margin: 74rpx auto 0;
+  width: 638rpx;
+}
+.code-login .login-account .account,.code-login .login-account .password{
+  width: 100%;
+  height: 96rpx;
+  padding: 0 60rpx;
+  box-sizing: border-box;
+  background: #F7F8FA;
+  border-radius: 54rpx;
+  margin-bottom: 36rpx;
+  font-size: 28rpx;
+  font-family: Helvetica;
+  color: #222222;
+}
+.code-login .login-account .account{
+  padding-left: 160rpx;
+  padding-top: 3rpx;
+}
+.code-login .login-account .password{
+  margin-bottom: 0;
+}
+.code-login .login-account .btn{
+  width: 100%;
+  height: 96rpx;
+  margin: 98rpx auto 0;
+  text-align: center;
+  line-height: 96rpx;
+  background: rgba(186, 210, 255, 1);
+  border-radius: 54rpx;
+  font-size: 32rpx;
+  font-family: Helvetica;
+  color: #FFFFFF;
+}
+.code-login .login-account .login-btn.active{
+  background: rgba(50, 96, 235, 1);
+}
+.code-login .login-account .account-box{
+  position: relative;
+}
+.code-login .login-account .account-box .error{
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #E50808;
+  position: absolute;
+  bottom: -32rpx;
+  left: 0;
+  display: none;
+}
+.code-login .login-account .active .account,.code-login .login-account .active .password{
+  border: 2rpx solid #E50808;
+  box-sizing: border-box;
+}
+.code-login .login-account .active .error{
+  display: block;
+}
+.code-login .login-account .account-box .zone{
+  position: absolute;
+  top: 50%;
+  left: 50rpx;
+  transform: translateY(-50%);
+}
+.code-login .login-account .account-box .zone .r-arrow{
+  width: 12rpx;
+  height: 22rpx;
+  margin-left: 16rpx;
+}
+.code-login .login-account .account-box .code-btn{
+ position: absolute;
+ top: 50%;
+ right: 54rpx;
+ z-index: 10;
+ transform: translateY(-50%);  
+ font-size: 24rpx;
+ font-family: PingFangHK-Medium, PingFangHK;
+ font-weight: 500;
+ color: #466FED;
+ height: 96rpx;
+ line-height: 96rpx;
+}
+.code-login .login-account .terms{
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  font-family: Helvetica;
+  color: #999999;
+  margin: 36rpx 0 30rpx 20rpx;
+}
+.code-login .login-account .terms .circle{
+  width: 22rpx;
+  height: 22rpx;
+  border: 2rpx solid #999999;
+  border-radius: 50%;
+  box-sizing: border-box;
+  margin-right: 10rpx;
+}
+.code-login .login-account .terms .circle-img{
+  width: 22rpx;
+  height: 22rpx;
+  margin-right: 10rpx;
+}
+.code-login .login-account .terms .prvacy{
+  font-size: 24rpx;
+  font-family: Helvetica;
+  color: rgba(62, 106, 237, 1)
+}
+.code-login .login-account .login-btn{
+  width: 100%;
+  height: 96rpx;
+  background: #C0D6FF;
+  border-radius: 54rpx;
+  font-size: 32rpx;
+  font-family: Helvetica;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 96rpx;
+}
+.code-login .login-account .login-btn .active{
+  background: rgba(50, 96, 235, 1);
+}
+.code-login .login-account .other{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 24rpx;
+}
+.code-login .login-account .other .account-login{
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #777777;
+  margin-top: 36rpx;
+}
+.code-login .login-account .other .register{
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(62, 106, 237, 1);
+}

@@ -1,0 +1,31 @@
+/**index.wxss**/
+@import "/wxParse/wxParse.wxss";
+.contraband{
+  background: #FFFFFF;
+  padding: 0 30rpx;
+}
+.contraband .contraband-top {
+  position: relative;
+}
+.contraband .contraband-top .search{
+  height: 70rpx;
+  background: #F7F7F7;
+  border-radius: 40rpx;    
+  font-size: 28rpx;
+  padding: 0 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #2F2F2F
+}
+.contraband .contraband-top .search-img{
+  width: 26rpx;
+  height: 26rpx;
+  position: absolute;
+  top: 50%;
+  right: 24rpx;
+  margin-top: -13rpx;
+  z-index: 9;
+}
+.contraband .contraband-bottom{
+  margin-top: 38rpx;
+}

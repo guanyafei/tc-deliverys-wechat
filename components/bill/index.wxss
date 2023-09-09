@@ -1,0 +1,115 @@
+/**index.wxss**/
+
+.bill{
+  background: #FFFFFF;
+  border: 2rpx solid #D2D2D2;
+}
+.bill .bill-wrap{
+  border: 2rpx solid #D2D2D2;
+  margin-bottom: 100rpx;
+}
+.bill .bill-top{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2rpx solid #D2D2D2;
+  padding: 18rpx 12rpx;
+}
+.bill .bill-top .bill-top-left{
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(47, 47, 47, 0.6);
+}
+.bill .bill-top .bill-top-right{
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #2F2F2F;
+}
+.bill .bill-item{
+  display: flex;
+  justify-content: space-between;
+  margin: 18rpx 12rpx 14rpx;
+}
+.bill .bill-item .bill-item-left,.bill .bill-item .bill-item-right{
+  display: flex;
+  justify-content: space-between;
+  width: 274rpx;
+  flex-shrink: 0;
+}
+.bill .bill-item .title{
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(47, 47, 47, 0.6)
+}
+.bill .bill-item .value{
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #2F2F2F;
+}
+.bill .added{
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #2F2F2F;
+  padding-left: 12rpx;
+  margin: 16rpx 0 30rpx;
+}
+.bill .price{
+  border-top: 2rpx solid #D2D2D2;
+  padding: 24rpx 12rpx;
+}
+.bill .price .price-item{
+  display: flex;
+  justify-content: space-between;
+}
+.bill .price .price-item-left{
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(47, 47, 47, 0.6);
+}
+.bill .price .price-item-right{
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #2F2F2F;
+}
+.bill .price .price-item:first-child{
+  margin-bottom: 14rpx;
+}
+.bill .pay{
+  padding: 24rpx 12rpx;
+  border-top: 2rpx solid #D2D2D2;
+}
+.bill .pay .pay-item{
+  display: flex;
+}
+.bill .pay .pay-item:first-child{
+  margin-bottom: 14rpx;
+}
+.bill .pay .pay-item .pay-item-left{
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(47, 47, 47, 0.6);
+}
+.bill .pay .pay-item .pay-item-right{
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #2F2F2F;
+  margin-left: 68rpx;
+}
+.bill .no-data{
+  width: 100%;
+  height: 100%;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(47, 47, 47, 0.4);
+  text-align: center;
+  margin-top: 200rpx;
+}

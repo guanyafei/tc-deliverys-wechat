@@ -1,0 +1,126 @@
+<!--index.wxml-->
+<view class="stub">
+  <view class="stub-top">
+    <view class="sender">
+      <view class="sender-left-wrap">
+        <image class="sender-left" src="../../assets/images/jj@2x.png"></image>
+      </view>
+      <view class="sender-right">
+        <view class="sender-right-top">
+          <view class="name">{{detail.consignor||''}}</view>
+          <view class="tel" wx:if="{{senderFlag}}">{{tools.toHide(detail.consignorPhone)}}</view>
+          <view class="tel" wx:else>{{detail.consignorPhone||''}}</view>
+          <image class="see" data-type="sender" bindtap="onSee"
+            src="{{senderFlag?'../../assets/images/bukejian@2x.png':'../../assets/images/zk@2x.png'}}"></image>
+        </view>
+        <view class="company">{{detail.consignorCompanyName||''}}</view>
+        <view class="address">
+          {{detail.consignorProvinceName?detail.consignorProvinceName+detail.consignorCityName+detail.consignorDistrictName+detail.consignorStreetName+detail.consignorDetailAddress:''}}
+        </view>
+      </view>
+    </view>
+    <view class="recipient">
+      <image class="recipient-left" src="../../assets/images/sj@2x.png"></image>
+      <view class="recipient-right">
+        <view class="recipient-right-top">
+          <view class="name">{{detail.consignee||''}}</view>
+          <view class="tel" wx:if="{{reciverFlag}}">{{tools.toHide(detail.consigneePhone)}}</view>
+          <view class="tel" wx:else>{{detail.consigneePhone||''}}</view>
+          <image class="see" data-type="reciver" bindtap="onSee"
+            src="{{reciverFlag?'../../assets/images/bukejian@2x.png':'../../assets/images/zk@2x.png'}}"></image>
+        </view>
+        <view class="company">{{detail.consigneeCompanyName||''}}</view>
+        <view class="address">
+          {{detail.consigneeProvinceName?detail.consigneeProvinceName+detail.consigneeCityName+detail.consigneeDistrictName+detail.consigneeStreetName+detail.consigneeDetailAddress:''}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="stub-center">
+    <view class="stub-center-left">货品名称：</view>
+    <view class="stub-center-right">{{detail.goodsName||''}}</view>
+  </view>
+  <view class="goods-info">
+    <view class="goods-info-left">
+      <view class="title">产品类型：</view>
+      <view class="value">{{tools.setServiceProductName(detail.serviceProduct)}}</view>
+    </view>
+    <view class="goods-info-right">
+      <view class="title">结算方式：</view>
+      <view class="value">{{tools.setSettlementType(detail.settlementType)}}</view>
+    </view>
+  </view>
+  <view class="goods-info">
+    <view class="goods-info-left">
+      <view class="title">实际重量：</view>
+      <view class="value">{{detail.totalWeight||''}}kg</view>
+    </view>
+    <view class="goods-info-right"> 
+      <view class="title">货品件数：</view>
+      <view class="value" wx:if="{{detail.totalNum}}">{{detail.totalNum || ''}}件</view>
+    </view>
+  </view>
+  <view class="goods-info">
+    <view class="goods-info-left">
+      <view class="title">计费重量：</view>
+      <view class="value">{{detail.billWeight||''}}kg</view>
+    </view>
+    <view class="goods-info-right">
+      <view class="title">基础运费：</view>
+      <view class="value" wx:if="{{detailNum.baseFreigt}}">
+        {{detailNum.baseFreigt}}元</view>
+    </view>
+  </view>
+  <view class="goods-info" wx:if="{{detailNum.orderServiceDetailVos.length>0}}">
+    <view class="goods-info-left">
+      <view class="title">增值服务</view>
+      <view class="value"></view>
+    </view>
+  </view>
+  <block wx:key="index" wx:for="{{detailNum.orderServiceDetailVos}}">
+      <view class=goods-info {{index == detailNum.orderServiceDetailVos.length-1?'bjje':'' }}" wx:key="index">
+        <view class="goods-info-left">
+          <view class="title">{{tools.setServiceType(item.serviceCode)}}：</view>
+          <view class="value"></view>
+        </view>
+        <view class="goods-info-right">
+          <view class="title"></view>
+          <view class="value" wx:if="{{bzPrice!=null && item.serviceCode=='PK'}}">
+            {{bzPrice}}元</view>
+          <view class="value" wx:if="{{qdPrice!=null && item.serviceCode=='SR'}}">
+            {{qdPrice}}元</view>
+          <view class="value" wx:if="{{bjPrice!=null && item.serviceCode=='IP'}}">
+            {{bjPrice}}元</view>
+        </view>
+      </view>
+  </block>
+  <!-- <view class="goods-info bjje">
+    <view class="goods-info-left">
+      <view class="title">保价金额：</view>
+      <view class="value"></view>
+    </view>
+    <view class="goods-info-right">
+      <view class="title"></view>
+      <view class="value" wx:if="{{detailNum.orderServiceDetailVos[0].serviceCharge}}">{{detailNum.orderServiceDetailVos[0].serviceCharge}}元</view>
+    </view>
+  </view> -->
+  <view class="goods-info">
+    <view class="goods-info-left">
+      <view class="title">备注信息：</view>
+      <view class="value">{{detail.customerRemark||'无'}}</view>
+    </view>
+  </view>
+  <view class="goods-info">
+    <view class="goods-info-left">
+      <view class="title">揽件员：</view>
+      <view class="value">{{detail.collectionPersonName||''}}</view>
+    </view>
+  </view>
+  <view class="goods-info ljsj">
+    <view class="goods-info-left">
+      <view class="title">揽件时间：</view>
+      <view class="value">{{detail.takeTime||''}}</view>
+    </view>
+  </view>
+</view>
+<wxs src="../../utils/check.wxs" module="tools" />

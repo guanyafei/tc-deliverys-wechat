@@ -1,0 +1,26 @@
+<view class="address-apply">
+  <message msg="{{errMsg}}"></message>
+  <view class="wrap">
+    <view class="item-top">
+       <image class="address-img" src="../../assets/images/dizhi@2x.png"></image>
+       <text class="title">搬迁寄件地址</text>
+    </view>
+    <view class="account"><text class="name">月结账号：</text>{{companyMonthlyInvoicing}}</view>
+    <view class="company"><text class="name">客户全称：</text>{{balanceConsumerName}}</view>
+    <view class="detail-address"><text class="name">寄件地址：</text>{{sendAddress}}</view>
+  </view>
+  <view class="wrap  {{tools.checkIsHasKey(errIndexList,'1')?'error-active':''}}">
+    <view class="item-top">
+       <text class="title">搬迁后地址</text>
+    </view>
+    <input bindtap="showAddress" disabled class="item" type="text" model:value="{{alladders}}" placeholder="选择地区" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 28rpx;"/> 
+    <input class="item error-input" type="text" data-index="1" maxlength="200" bindinput="getCheck" model:value="{{params.bookAddress}}" placeholder="详细地址" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 28rpx;"/>
+    <view class="error">只允许包含符号‘-或#’</view>
+  </view>
+  <view class="tip-1">申请流程：我们在收到您的申请后将与贵公司取得联系，商榷相应事宜，待合同签章完毕后我们将为贵公司开通该子账号，子账号开通可进行下单操作。 </view>
+  <view class="tip-1"> 新增寄件地址最终将以合同约定为准，请输入地址时尽量保持一致。</view>
+  <view class="btn" bindtap="save">提交搬迁申请</view>
+  <view class="toast" wx:if="{{showToast}}">{{checkMsg}}</view>
+  <address wx:if="{{showAddress}}"  addersObj="{{addersObj}}" bindcloseAddress="closeAddress" bindgetAddress="getAddress"></address>
+</view>
+<wxs src="../../utils/check.wxs" module="tools" />

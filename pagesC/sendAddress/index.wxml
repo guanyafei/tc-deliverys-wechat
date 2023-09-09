@@ -1,0 +1,13 @@
+<view class="send-address">
+  <view class="send-top">
+    <image class="address-img" src="../../assets/images/dizhi@2x.png"></image>
+    <text class="title">寄件地址</text>
+  </view>
+  <view class="tip">使用该月结账号下单时只能使用以下地址寄件，目前仅支持同一网点服务范围内的地址变更</view>
+  <view class="address">{{bookAddress}}</view>
+  <view class="btn-wrap">
+    <!-- <view class="add" data-page="sendAddressApply" bindtap="goPage">申请添加寄件地址</view> -->
+    <view class="move"  wx:if="{{isReviewPassed}}" data-page="sendAddressMove" bindtap="goPage">寄件地址搬迁</view>
+    <view class="audit" wx:else>新地址审核中</view> 
+  </view>
+</view>

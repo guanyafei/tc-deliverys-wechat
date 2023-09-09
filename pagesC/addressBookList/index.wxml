@@ -1,0 +1,24 @@
+<view class="address-book">
+  <view class="book-top">
+    <input class="search" type="text" bindconfirm="gotSearch"  model:value="{{params.search_name}}" confirm-type="search" placeholder="输入姓名/电话号码" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 24rpx;"/>
+    <image class="search-img" src="../../assets/images/search@2x.png"></image>
+  </view>
+  <view class="result">
+      <view class="item" data-index="{{index}}" bindtap="onSelected" wx:key="index" wx:for="{{list}}">
+        <view class="item-left" wx:if="{{delFlag && !(sign_status == '1' && item.addressType=='0' && item.isDefault=='1')}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="selectItem">
+          <image class="select" src="{{item.isSelected==2?'../../assets/images/select1@2x.png':'../../assets/images/select_1@2x.png'}}"></image>
+        </view>
+        <view class="item-right">
+          <view class="item-top">
+            <view class="name">{{item.name}}</view>
+            <view class="tel">{{tools.toHide(item.phone)}}</view>
+            <view class="tip" wx:if="{{item.isDefault=='1' && sign_status == '1' && item.addressType=='0'}}">默认寄件地址</view>
+            <view class="tip-2" wx:if="{{item.isDefault=='1' && (sign_status != '1' || (sign_status == '1' && item.addressType=='1'))}}">默认</view>
+          </view>
+          <view class="company">{{item.consumerName?item.consumerName:''}}</view>
+          <view class="address">{{item.bookProvinceName}}{{item.bookCityName}}{{item.bookDistrictName}}{{item.bookStreetName}}{{item.bookAddress}}</view>
+        </view>
+      </view>
+  </view>
+</view>
+<wxs src="../../utils/check.wxs" module="tools" />

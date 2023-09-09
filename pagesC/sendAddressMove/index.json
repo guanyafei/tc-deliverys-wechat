@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "寄件地址",
+  "usingComponents": {
+    "message":"/components/message/index",
+    "address":"/components/usefulAddress/index"  
+  }
+}

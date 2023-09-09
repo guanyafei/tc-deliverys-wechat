@@ -1,0 +1,18 @@
+<view class="news">
+  <view class="item">
+    <view class="item-l">寄件成功通知</view>
+    <switch class="switch" color="#417CF7" checked="{{switch}}"/>
+  </view>
+  <view class="item">
+    <view class="item-l">签收成功通知</view>
+    <switch class="switch" color="#417CF7" checked="{{switch}}" />
+  </view>
+  <view class="item">
+    <view class="item-l">拒收通知</view>
+    <switch class="switch" color="#417CF7" checked="{{switch}}"/>
+  </view>
+  <view class="item">
+    <view class="item-l">待支付通知</view>
+    <switch class="switch" color="#417CF7" checked="{{switch}}"/>
+  </view>
+</view>

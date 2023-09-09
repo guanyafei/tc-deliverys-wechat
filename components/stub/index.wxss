@@ -1,0 +1,117 @@
+/**index.wxss**/
+.stub .stub-top .sender,.stub .stub-top .recipient{
+  display: flex;
+  position: relative;
+}
+.stub .stub-top .sender{
+  padding-bottom: 20rpx;
+  margin-bottom: 20rpx;
+}
+.stub .stub-top .sender .sender-left,.stub .stub-top .recipient .recipient-left{
+  width: 44rpx;
+  height: 52rpx;
+  flex-shrink: 0;
+}
+.stub .stub-top .sender .sender-left-wrap{
+  position: relative;
+}
+.stub .stub-top .sender .sender-left-wrap::after{
+  content: '';
+  height: 174rpx;
+  width: 4rpx;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAABeCAYAAAAJ+sWoAAABm0lEQVQ4T3WS70cDcRzH39+j/pv7R5JK9KQy04MkiU26yW2+jbPN2OScnOTkNtmeVDJJMpNKKmnJJD1I0hIl6UHi5HvvR7F7cl7u/f28vb4/xEDiXQcAMZB8kyEMJl8JQ8kXwsjCs0QAiDGjy8Xq8x8mjCdG44sPnJpcvJfQABFL3clA/YmnOoziRkdHf8+e6XSbPTPmFRfPmpeEOfOcMJ85o08ifaGjr2ePkT1hT0q2OLUkm1KZC3O5KYEAIrN8SMhmD6L2lc83GFnWLnty1g6hYG1JQIMo5rYkggCilN+O6rHzdUZOocrx1YIvoWkQbtGnxlpxg5FX8qJ6Krar4xcQ1fIqT7VadqSmNDbLDsdrKzZ9tm07qqdhlxjt2gVONewcffacHH32HYvRgZvVgf5e994KI0AcuSZ9jtwl+hyHAIjTtRTv68IzonzaXoLR9fo8T/VGgXo/t94cNTreLOGhMh3l8xRGgHj0p3gIj36cGs9+jOMv1UkZKJ9uZSLqHb7Xx9jzsTlKn08FyuerNsKe79oQ4ac+HC7+A7sbsKcWZ5K2AAAAAElFTkSuQmCC') no-repeat center;
+  position: absolute;
+  left: 50%;
+  top: 65rpx;
+  transform: translateX(-50%);
+}
+.stub .stub-top .sender .sender-right,.stub .stub-top .recipient .recipient-right{
+  margin-left: 32rpx;
+}
+.stub .stub-top .sender .sender-right .sender-right-top,.stub .stub-top .recipient .recipient-right .recipient-right-top{
+  display: flex;
+  align-items: center;
+}
+.stub .stub-top .sender .sender-right .sender-right-top view,.stub .stub-top .recipient .recipient-right .recipient-right-top view{
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #2F2F2F;
+}
+.stub .stub-top .sender .sender-right .sender-right-top .tel,.stub .stub-top .recipient .recipient-right .recipient-right-top .tel{
+  margin: 0 26rpx 0 36rpx;
+}
+.stub .stub-top .sender .sender-right .sender-right-top .see,.stub .stub-top .recipient .recipient-right .recipient-right-top .see{
+  width: 22rpx;
+  height: 14rpx;
+  margin-top: 2rpx;
+}
+.stub .stub-top .sender .sender-right .company,.stub .stub-top .sender .sender-right .address,.stub .stub-top .recipient .recipient-right .company,.stub .stub-top .recipient .recipient-right .address{
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(47, 47, 47, 0.8);
+  margin-top: 18rpx;
+}
+.stub .stub-top .sender .sender-right .company{
+  height: 34rpx;
+}
+.stub .stub-top .sender .sender-right .address,.stub .stub-top .recipient .recipient-right .address{ 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  height: 102rpx;
+}
+.stub .stub-center{
+  display: flex;
+  display: flex;
+  justify-content: space-between;
+  padding: 26rpx 0;
+  border-top: 2rpx solid #D2D2D2;
+  border-bottom: 2rpx solid #D2D2D2;
+}
+.stub .stub-center .stub-center-left,.stub .stub-center .stub-center-right{
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(47, 47, 47, 0.6);
+}
+.stub .stub-center .stub-center-right{
+  color: #2F2F2F;
+}
+.stub .goods-info{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 22rpx;
+}
+.stub .goods-info .goods-info-left,.stub .goods-info .goods-info-right{
+  flex-shrink: 0;
+  display: flex;
+}
+.stub .goods-info .goods-info-right{
+  width: 264rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.stub .goods-info .goods-info-left .title,.stub .goods-info .goods-info-right .title{
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(47, 47, 47, 0.6);
+}
+.stub .goods-info .goods-info-left .value,.stub .goods-info .goods-info-right .value{
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #2F2F2F;
+  margin-left: 12rpx;
+}
+.stub .bjje {
+  padding-bottom: 28rpx;
+  border-bottom: 2rpx solid #D2D2D2;
+}
+.stub .ljsj{
+  margin-bottom: 20rpx;
+}

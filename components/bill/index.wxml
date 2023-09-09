@@ -1,0 +1,86 @@
+<!--index.wxml-->
+<view class="bill">
+  <block class="bill-wrap">
+    <view class="bill-top" wx:if="{{detail.returnWaybillNo}}">
+      <view class="bill-top-left">回单单号：</view>
+      <view class="bill-top-right" data-waybillno="{{detail.returnWaybillNo}}" bindtap="goQuery">{{detail.returnWaybillNo || ''}}</view>
+    </view>
+    <view class="bill-item">
+      <view class="bill-item-left">
+        <view class="title">产品类型：</view>
+        <view class="value">{{tools.setServiceProductName(detail.serviceProduct)}}</view>
+      </view>
+      <view class="bill-item-right">
+        <view class="title">结算方式：</view>
+        <view class="value">{{tools.setSettlementType(detail.settlementType)}}</view>
+      </view>
+    </view>
+    <view class="bill-item">
+      <view class="bill-item-left">
+        <view class="title">实际重量：</view>
+        <view class="value">{{detail.totalWeight||''}}kg</view>
+      </view>
+      <view class="bill-item-right">
+        <view class="title">货品件数：</view>
+        <view class="value" wx:if="{{detail.totalNum}}">{{detail.totalNum}}件</view>
+      </view>
+    </view>
+    <view class="bill-item">
+      <view class="bill-item-left">
+        <view class="title">计费重量：</view>
+        <view class="value">{{detail.billWeight||''}}kg</view>
+      </view>
+      <view class="bill-item-right">
+        <view class="title">基础运费：</view>
+        <view class="value" wx:if="{{detailNum.baseFreigt}}">
+          {{detailNum.baseFreigt}}元</view>
+      </view>
+    </view>
+    <view class="added" wx:if="{{detailNum.orderServiceDetailVos.length>0}}">增值服务</view>
+    <block wx:key="index" wx:for="{{detailNum.orderServiceDetailVos}}">
+      <view class="bill-item" wx:key="index" wx:if="{{(item.serviceCode=='PK' || item.serviceCode=='SR' || item.serviceCode=='IP')&&item.serviceCharge}}">
+        <view class="bill-item-left">
+          <view class="title">{{tools.setServiceType(item.serviceCode)}}：</view>
+          <view class="value"></view>
+        </view>
+        <view class="bill-item-right">
+          <view class="title"></view>
+          <view class="value" wx:if="{{bzPrice!=null && item.serviceCode=='PK'}}">
+            {{bzPrice}}元</view>
+          <view class="value" wx:if="{{qdPrice!=null && item.serviceCode=='SR'}}">
+            {{qdPrice}}元</view>
+          <view class="value" wx:if="{{bjPrice!=null && item.serviceCode=='IP'}}">
+            {{bjPrice}}元</view>
+        </view>
+      </view>
+    </block>
+    <view class="price" wx:if="{{detailNum.sumPrice || detailNum.baseFreigtDiscount}}">
+      <view class="price-item"  wx:if="{{detailNum.baseFreigtDiscount}}">
+        <view class="price-item-left"  wx:if="{{detailNum.baseFreigtDiscount}}">折扣减免：</view>
+        <view class="price-item-right" wx:if="{{detailNum.baseFreigtDiscount}}">
+          {{detailNum.baseFreigtDiscount}}元</view>
+      </view>
+      <view class="price-item" wx:if="{{detailNum.sumPrice}}">
+        <view class="price-item-left">{{userTypeDesc}}</view>
+        <view class="price-item-right" wx:if="{{detailNum.sumPrice}}">
+          {{detailNum.sumPrice}}元</view>
+      </view>
+    </view>
+    <view class="pay">
+      <view class="pay-item">
+        <view class="pay-item-left">支付状态：</view>
+        <view class="pay-item-right" wx:if="{{detail.settlementType=='1' && detail.status=='9'}}">
+          寄付月结
+        </view>
+        <view class="pay-item-right" wx:else>
+          {{tools.setPaymentState(detail.paymentState)}}
+        </view>
+      </view>
+      <view class="pay-item">
+        <view class="pay-item-left">拒收原因：</view>
+        <view class="pay-item-right">{{detail.cancelReason||''}}</view>
+      </view>
+    </view>
+  </block>
+</view>
+<wxs src="../../utils/check.wxs" module="tools" />

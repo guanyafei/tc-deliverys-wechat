@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<view class="service-area">
+  <view class="area-top">
+    <view class="tip">行政区域</view>
+    <input bindtap="showAddress" class="address" disabled type="text" model:value="{{alladders}}" placeholder="输入查询地区" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 28rpx;"/>
+    <view class="btn" bindtap="onSearch">查询</view>
+  </view>
+  <!-- <view class="sub"><text class="dot">*</text>我们目前可支持的服务区域</view>
+  <view class="address-list">北京市 | 上海市 | 天津市</view> -->
+  <view class="result" wx:if="{{site != ''}}">
+    <view class="result-top">{{site}}</view>
+    <view class="tip1" wx:if="{{isSupport=='0'}}">该区域暂不支持安迅快递的收寄服务</view>
+    <view class="tip2" wx:if="{{isSupport=='0'}}">很抱歉；我们会尽快开通该区域的快递支持服务！</view>
+    <view class="tip3" wx:if="{{isSupport=='1'}}">该区域已支持安迅快递的收寄服务！</view>
+    <view class="result-bottom">
+        <view class="sub-0">温馨提示</view>
+        <view class="sub-1">»上述结果为中小件快递收收寄务范围；</view>
+        <view class="sub-2">»咨询我司其他产品信息可通过安迅物流官网或致电客服热线
+        <text class="tel">400-128-8000</text>咨询。
+        </view>
+      </view>
+  </view>
+  <address wx:if="{{showAddress}}"  addersObj="{{addersObj}}" bindcloseAddress="closeAddress" bindgetAddress="getAddress"></address>
+</view>

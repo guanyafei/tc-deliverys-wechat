@@ -1,0 +1,109 @@
+/**index.wxss**/
+.service-area{
+  min-height: 100vh;
+  background: #F2F3F7;
+  padding: 20rpx 16rpx 0;
+  box-sizing: border-box;
+}
+.service-area .area-top{
+  height: 366rpx;
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  padding: 26rpx 28rpx 56rpx;
+  box-sizing: border-box;
+}
+.service-area .area-top .tip{
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #2F2F2F;
+}
+.service-area .area-top .address{
+  margin-top: 14rpx;
+  border-bottom: 2rpx solid #CECECE;
+  padding: 8rpx 0;
+}
+.service-area .area-top .btn{
+  height: 96rpx;
+  background: #3260EB;
+  border-radius: 54rpx;
+  text-align: center;
+  line-height: 96rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+  margin-top: 76rpx;
+}
+.service-area .sub{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(47, 47, 47, 0.6);
+  margin-top: 38rpx;
+}
+.service-area .dot{
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #D40000;
+  margin-right: 8rpx;
+  position: relative;
+  top: 6rpx;
+}
+.service-area .address-list{
+ margin: 22rpx auto 54rpx;
+ font-size: 28rpx;
+ font-family: PingFangSC-Regular, PingFang SC;
+ font-weight: 400;
+ color: #2F2F2F;
+ text-align: center;
+}
+.service-area .result{
+  height: 448rpx;
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  box-sizing: border-box;
+  padding: 36rpx 40rpx 52rpx;
+}
+.service-area .result-top{
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #2F2F2F;
+  text-align: center;
+  margin-bottom: 16rpx;
+}
+.service-area .result .tip1{
+  margin-bottom: 14rpx;
+}
+.service-area .result .tip1,.service-area .result .tip2,.service-area .result .tip3{
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #2F2F2F;
+  text-align: center;
+}
+.service-area .result .result-bottom .sub-0{
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #F38B00;
+  margin-top: 46rpx;
+}
+.service-area .result .result-bottom .sub-1,.service-area .result .result-bottom .sub-2{
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(47, 47, 47, 0.6);
+  margin-top: 18rpx;
+}
+.service-area .result .result-bottom .tel{
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #F38B00;
+}

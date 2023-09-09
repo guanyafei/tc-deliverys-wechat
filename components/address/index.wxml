@@ -1,0 +1,22 @@
+<!--component/address/address.wxml-->
+<view class="address" bindtap="clear">
+  <view class="address_box" catchtap="all">
+    <view class="address_header">
+      <view class="address_top">
+        所在地区
+        <view class="close-wrap" bindtap="close" ><image class="close" bindtap="close" src="../../assets/images/close@2x.png"></image></view>
+      </view>
+      <view class="address_tit">
+        <view class="{{num==index?'changeColor':''}}" wx:for="{{adders}}" wx:key="index"  catchtap="choise" data-index="{{index}}" wx:if="{{item.firstArea!=''}}"><view class="area">{{item.firstArea}}</view></view>
+      </view>
+    </view>
+    <view class="box">
+      <view class="address_list">
+        <view wx:for="{{list}}" class="{{item.firstCode == adders[0].firstCode?'active':''}}" wx:key="index" catchtap="getadd" data-arr="{{item}}" wx:if="{{num==0}}">{{item.firstArea}}</view>
+        <view wx:for="{{citylist}}" class="{{item.secondCode == adders[1].firstCode?'active':''}}" wx:key="index" catchtap="getcity" data-arr="{{item}}" wx:if="{{num==1}}">{{item.secondArea}}</view>
+        <view wx:for="{{counlist}}" class="{{item.thirdCode == adders[2].firstCode?'active':''}}" wx:key="index" catchtap="getcoun" data-arr="{{item}}" wx:if="{{num==2}}">{{item.thirdArea}}</view>
+        <view wx:for="{{streetlist}}" class="{{item.fouthCode == adders[3].firstCode?'active':''}}" wx:key="index" catchtap="getstreet" data-arr="{{item}}" wx:if="{{num==3}}">{{item.fouthArea}}</view>
+      </view>
+    </view>
+  </view>
+</view>

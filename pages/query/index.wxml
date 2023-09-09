@@ -1,0 +1,60 @@
+<!--index.wxml-->
+<view class="query">
+  <view class="query-top">
+    <view class="query-top-wrap">
+      <view class="query-top-left">
+        <input class="search" type="text" bindinput="onInputSearch" bindconfirm="gotSearch" model:value="{{params.transferNo}}" confirm-type="search"
+          placeholder="输入运单号" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 24rpx;" />
+        <image class="search-img" src="../../assets/images/search@2x.png"></image>
+      </view>
+      <!-- <image class="query-top-right" bindtap="" src="../../assets/images/sys@2x.png"></image> -->
+    </view>
+    <view class="select-wrap">
+      <view class="select-item {{index==1?'selected':''}}" data-index="1" catchtap="selected">
+        <text>我的邮寄({{sendTotal}})</text>
+        <view class="arrow" data-index="1" catchtap="dropDown">
+          <image src="{{index==1?'../../assets/images/xl1@2x.png':'../../assets/images/xl2@2x.png'}}"></image>
+          <view class="drop-down" wx:if="{{dropIndex==1}}">
+            <image class="top-arrow" src="../../assets/images/sa@2x.png"></image>
+            <view class="drop-item {{(sendIndex==index && index==0)||sendIndex==index?'active':''}}"
+              wx:for="{{sendStatus}}" data-value="{{item.value}}" data-index="{{index}}" wx:key="index" data-mod="send"
+              catchtap="selectStatus">{{item.key}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="select-item {{index==2?'selected':''}}" data-index="2" catchtap="selected">
+        <text>我的收取({{acceptTotal}})</text>
+        <view class="arrow" data-index="2" catchtap="dropDown">
+          <image src="{{index==2?'../../assets/images/xl1@2x.png':'../../assets/images/xl2@2x.png'}}"></image>
+          <view class="drop-down" wx:if="{{dropIndex==2}}">
+            <image class="top-arrow" src="../../assets/images/sa@2x.png"></image>
+            <view class="drop-item {{(acceptIndex==index && index==0)||acceptIndex==index?'active':''}}"
+              wx:for="{{acceptStatus}}" data-index="{{index}}" wx:key="index" data-value="{{item.value}}"
+              data-mod="accept" catchtap="selectStatus">{{item.key}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="select-item {{index==3?'selected':''}}" data-index="3" catchtap="selected">
+        <text>待支付({{payTotal}})</text>
+        <view class="arrow" data-index="3" catchtap="dropDown">
+          <image src="{{index==3?'../../assets/images/xl1@2x.png':'../../assets/images/xl2@2x.png'}}"></image>
+          <view class="drop-down" wx:if="{{dropIndex==3}}">
+            <image class="top-arrow" src="../../assets/images/sa@2x.png"></image>
+            <view class="drop-item {{(payIndex==index && index==0)||payIndex==index?'active':''}}"
+              wx:for="{{payStatus}}" data-index="{{index}}" wx:key="index" data-value="{{item.value}}" data-mod="pay"
+              catchtap="selectStatus">{{item.key}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="list">
+    <item list="{{list}}" filterStatus="{{filterStatus}}" bindonCancelOrder="onCancelOrder" itemIndex="{{index}}" bindonIsShowNotify="onIsShowNotify"></item>
+  </view>
+  <view wx:if="{{notifyFlag}}" class="urge" bindtap="notify">
+    一键催揽
+  </view>
+  <view class="toast" wx:if="{{notifyToast}}">
+    <image class="imgs" src="../../assets/images/dh@2x.png"></image>催揽消息发送成功
+  </view>
+</view>

@@ -1,0 +1,151 @@
+<view class="invoice-apply">
+  <view class="order-wrap">
+    <view class="item">
+      <view class="order-list"><view class="title">订单号：</view><view class="order">{{params.orderNos}}</view></view>
+    </view>
+    <view class="item">
+      <view class="order-list"><view class="title">运单号：</view><view class="order">{{params.deliveryNos}}</view></view>
+    </view>
+  </view>
+  <view class="info-wrap"> 
+    <view class="item">
+      <view class="item-left">
+        <text class="star">*</text><text class="title">发票类型</text>
+      </view>
+      <view class="item-right">
+        <view class="btn {{params.invoiceType=='1'?'active':''}}" data-type="1" bindtap="chooseInvoiceType">电子普票</view>
+        <!-- <view class="btn disabled" ">纸质专票</view> -->
+        <view class="btn {{params.invoiceType=='2'?'active':''}}" wx:if="{{status != 'HK'}}" data-type="2" bindtap="chooseInvoiceType">纸质专票</view>
+      </view>
+    </view>
+    <view class="item">
+      <view class="item-left">
+        <text class="star">*</text><text class="title">抬头类型</text>
+      </view>
+      <view class="item-right">
+        <view class="btn {{params.titleType=='1'?'active':''}} {{status=='HK'&& params.titleType=='2'?'disabled':''}}" data-type="1" bindtap="chooseHeadType">企业</view>
+        <view class="btn {{params.titleType=='2'?'active':''}} {{status=='HK'&& params.titleType=='1'?'disabled':''}}" data-type="2" bindtap="chooseHeadType" wx:if="{{params.invoiceType!=2}}">个人/非企业</view>
+      </view>
+    </view>
+    <view class="item {{tools.checkIsHasKey(errIndexList,'1')?'error-active':''}}">
+      <view class="item-left">
+        <text class="star">*</text><text class="title" >发票抬头</text>
+      </view>
+      <input class="name" type="text" disabled="{{!(params.invoiceType=='1' && params.titleType=='2')}}"  maxlength="100" data-index="1" bindinput="getCheck" model:value="{{params.title}}" placeholder="请输入发票抬头" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 28rpx;"/>
+      <view class="error">不允许包含特殊符号及空格！</view>
+      <view class="item-right header-img" data-page="invoiceHeaderList" bindtap="goPage">
+        <image class="book" src="../../assets/images/fapiaoxinxi@2x.png"></image>
+      </view>
+    </view>
+    <!-- 纸质/企业 -->
+    <view class="item-wrap" wx:if="{{params.invoiceType=='2' && params.titleType=='1'}}">
+      <view class="item">
+        <view class="item-left">
+          <text class="star">*</text><text class="title">企业税号</text>
+        </view>
+        <input class="name" type="text" disabled model:value="{{params.taxNo}}" placeholder="请输入企业税号" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 28rpx;"/>
+      </view>
+      <view class="item {{tools.checkIsHasKey(errIndexList,'2')?'error-active':''}}">
+        <view class="item-left">
+          <text class="star">*</text><text class="title">注册地址</text>
+        </view>
+        <input class="name" type="text"  maxlength="300" data-index="2" bindinput="getCheck" model:value="{{params.address}}" placeholder="请输入企业注册地址" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 28rpx;"/>
+        <view class="error">不允许包含特殊符号及空格！</view>
+      </view>
+      <view class="item {{tools.checkIsHasKey(errIndexList,'3')?'error-active':''}}">
+        <view class="item-left">
+          <text class="star">*</text><text class="title">注册电话</text>
+        </view>
+        <input class="name" type="number" maxlength="15" data-index="3"  bindinput="getCheck" model:value="{{params.registerPhone}}" placeholder="请输入企业注册电话" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 28rpx;"/>
+        <view class="error">注册电话格式有误！</view>
+      </view>
+      <view class="item {{tools.checkIsHasKey(errIndexList,'4')?'error-active':''}}">
+        <view class="item-left">
+          <text class="star">*</text><text class="title">开户银行</text>
+        </view>
+        <input class="name" type="text" maxlength="300" data-index="4"  bindinput="getCheck" model:value="{{params.accountBank}}" placeholder="请输入企业开户银行名称" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 28rpx;"/>
+        <view class="error">不允许包含特殊符号及空格！</view>
+      </view>
+      <view class="item {{tools.checkIsHasKey(errIndexList,'5')?'error-active':''}}">
+        <view class="item-left">
+          <text class="star">*</text><text class="title">银行账号</text>
+        </view>
+        <input class="name" type="number" model:value="{{params.bankNum}}" maxlength="20" data-index="5"  bindinput="getCheck"  placeholder="请输入企业开户银行账号" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 28rpx;"/>
+        <view class="error">银行账号格式有误！</view>
+      </view>
+    </view>
+    <!-- 个人/非企业 -->
+    <view class="item-wrap" wx:if="{{params.invoiceType=='1' && params.titleType=='2'}}">
+      <view class="item {{tools.checkIsHasKey(errIndexList,'6')?'error-active':''}}">
+        <view class="item-left"><text class="star">*</text><text class="title">联系电话</text>
+        </view>
+        <input class="name" type="number"  maxlength="11"  data-index="6"  bindinput="getCheck"  model:value="{{params.telephone}}" placeholder="请填写联系电话" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 28rpx;"/>
+        <view class="error">联系电话格式有误！</view>
+      </view>
+     </view>
+    <!-- 电子普票/企业 -->
+    <view class="item-wrap" wx:if="{{params.invoiceType=='1' && params.titleType=='1'}}">
+      <view class="item">
+        <view class="item-left">
+          <text class="star">*</text><text class="title">企业税号</text>
+        </view>
+        <input class="name" type="text" disabled model:value="{{params.taxNo}}" placeholder="请输入企业税号" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 28rpx;"/>
+      </view>
+      <view class="item {{tools.checkIsHasKey(errIndexList,'7')?'error-active':''}}">
+        <view class="item-left"><text class="star">*</text><text class="title">联系电话</text>
+        </view>
+        <input class="name" type="number" model:value="{{params.telephone}}"  maxlength="11"  data-index="7"  bindinput="getCheck" placeholder="请填写联系电话" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 28rpx;"/>
+        <view class="error">联系电话格式有误！</view>
+      </view>
+    </view>
+    <view class="item">
+        <view class="item-left">
+          <text class="title">开票金额</text>
+        </view>
+        <view class="item-right">￥{{params.invoiceAmount}}</view>
+    </view>
+  </view>
+  <!-- 纸质/企业 -->
+  <view class="page-wrap" wx:if="{{params.invoiceType=='2' && params.titleType=='1'}}">
+    <view class="top-title">纸质专票邮寄地址</view>
+    <view class="item {{tools.checkIsHasKey(errIndexList,'8')?'error-active':''}}">
+      <view class="item-top">
+        <text class="star">*</text><text class="title">收件人姓名</text>
+      </view>
+      <view class="item-bottom">
+        <input class="name" maxlength="50" data-index="8"  bindinput="getCheck" type="text" model:value="{{params.receiveUserName}}" placeholder="请输入纸质专票收件人姓名" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 28rpx;"/>
+      </view>
+      <view class="error">不允许包含特殊符号及空格！</view>
+    </view>
+    <view class="item {{tools.checkIsHasKey(errIndexList,'9')?'error-active':''}}">
+      <view class="item-top">
+        <text class="star">*</text><text class="title">收件人电话</text>
+      </view>
+      <view class="item-bottom">
+        <input class="name" type="number" maxlength="11" data-index="9"  bindinput="getCheck" model:value="{{params.receiveUserPhone}}" placeholder="请输入纸质专票收件人电话" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 28rpx;"/>
+      </view>
+      <view class="error">联系电话格式有误！</view>
+    </view>
+    <view class="item {{tools.checkIsHasKey(errIndexList,'10')?'error-active':''}}">
+      <view class="item-top">
+        <text class="star">*</text><text class="title">收件人地址</text>
+      </view>
+      <view class="item-bottom">
+        <input class="name" type="text" maxlength="300"  data-index="10"  bindinput="getCheck" model:value="{{params.receiveUserAddress}}" placeholder="请输入纸质专票收件人地址" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 28rpx;"/>
+      </view>
+      <view class="error">不允许包含特殊符号及空格！</view>
+    </view>
+  </view>
+  <view class="tip">发票开具需时间过程,请根据实际情况进行申请；</view>
+  <view class="tip">若需加急请您联系相应业务人员进行受理您的需求。</view>
+  <!-- 纸质/企业提示 -->
+  <view class="page-tip" wx:if="{{params.invoiceType=='2'}}">
+    纸质专票开具完毕我们将通过邮寄的方式送达，送达后需要您在小程序端或商家工作台进行签收确认。
+  </view>
+  <view class="btn-wrap">
+    <view class="btn cancle" bindtap="giveUp">放弃申请</view>
+    <view class="btn save active" data-page="invoiceSuccess" bindtap="goPage">提交申请</view>
+  </view>
+  <view class="tip last-tip">客服热线 400-128-8000</view>
+</view>
+<wxs src="../../utils/check.wxs" module="tools" /> 

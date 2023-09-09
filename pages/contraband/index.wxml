@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view class="contraband">
+  <view class="contraband-top">
+    <input class="search" type="text" maxlength="100" bindconfirm="gotSearch"  model:value="{{keyword}}" confirm-type="search" placeholder="输入物品全称或关键字" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 24rpx;"/>
+    <image class="search-img" bindtap="gotSearch" src="../../assets/images/search@2x.png"></image>
+  </view>
+  <view class="contraband-bottom">
+    <!-- <rich-text nodes="{{tempStr}}"></rich-text> -->
+    <import src="../../wxParse/wxParse.wxml"/>
+    <template is="wxParse" data="{{wxParseData:art.nodes}}" />
+  </view>
+</view>

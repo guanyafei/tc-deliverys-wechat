@@ -1,0 +1,18 @@
+<!--index.wxml-->
+<view class="success">
+  <image class="img" src="../../assets/images/success@2x.png"></image>
+  <text class="tip">下单成功</text>
+  <text class="courier">请等待小哥上门揽件</text>
+  <view class="num-wrap">
+    运单号<text class="num">{{waybillNo}}</text>
+    <image  bindtap="copyOrderNo" class="success-img" src="../../assets/images/copy@2x.png"></image>
+  </view>
+  <view class="btn-wrap">
+    <view class="cancle" data-page="order" bindtap="goPage">继续下单</view>
+    <view class="sure" data-page="query" bindtap="goPage">查看订单</view>
+  </view>
+  <view class="sub">温馨提示</view>
+  <view class="sub ban">请勿邮寄国家规定的违禁物品</view>
+  <view class="sub route">可前往运单追踪>我邮寄的菜单页面查看下单信息</view>
+  <view class="toast" wx:if="{{showToast}}"><image class="imgs" src="../../assets/images/dh@2x.png"></image>运单号复制成功</view>
+</view>

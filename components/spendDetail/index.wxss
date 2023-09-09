@@ -1,0 +1,102 @@
+/**index.wxss**/
+.spend-detail{
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.spend-detail .spend-wrap{
+  background: #FFFFFF;
+  border-radius: 32rpx 32rpx 0rpx 0rpx;    
+  position: absolute;
+  bottom: 146rpx;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 28rpx 16rpx;
+  box-sizing: border-box;
+}
+.spend-detail .spend-wrap .tip{
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(47, 47, 47, 0.4);
+}
+.spend-detail .spend-wrap .spend-top{
+  height: 122rpx;
+  background: #FFFFFF;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #252525;
+  line-height: 122rpx;
+  text-align: center;
+  position: relative;
+}
+.spend-detail .spend-wrap .spend-top .close-wrap{
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -30rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+.spend-detail .spend-wrap .spend-top .close{
+  width: 26rpx;
+  height: 26rpx;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -13rpx;
+}
+.spend-detail .spend-wrap .item{
+  border-bottom: 2rpx solid #D7D7D7;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.spend-detail .spend-wrap .item:nth-of-type(3) {
+  border-bottom: none;
+  margin-bottom: 20rpx;
+  margin-top: 30rpx;
+}
+.spend-detail .spend-wrap .item:nth-of-type(3) .item-left{
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #2F2F2F;
+}
+.spend-detail .spend-wrap .item:nth-of-type(3) .item-right{
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #2F2F2F;
+}
+.spend-detail .spend-wrap .no-border{
+  border-bottom: none;
+  margin-bottom: 14rpx;
+}
+.spend-detail .spend-wrap .p-b{
+  padding-bottom: 18rpx;
+}
+.spend-detail .spend-wrap .m-b{
+  margin-bottom: 18rpx;
+}
+.spend-detail .spend-wrap .item:last-child{
+  margin-bottom: 34rpx;
+}
+.spend-detail .spend-wrap .item .item-left{
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(47, 47, 47, 0.8);
+}
+.spend-detail .spend-wrap .item .item-right{
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(47, 47, 47, 0.6);
+}

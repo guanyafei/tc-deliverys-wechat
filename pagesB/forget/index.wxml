@@ -1,0 +1,33 @@
+<!--index.wxml-->
+<view class="forget">
+  <view class="tip">密码重置</view>
+  <view class="login-account">
+    <view class="account-box  {{tools.checkIsHasKey(errIndexList,'1')?'active':''}}">
+        <view class="zone">
+          +86<image class="r-arrow" src="../../assets/images/r-arrow@2x.png"></image>
+        </view>
+        <input class="account" type="number" maxlength="11"  bindinput="getCheck" data-index="1" model:value="{{params.phoneNum}}" placeholder="输入手机号" placeholder-style="color: #DFDFDF;font-size: 28rpx;font-weight: 500;"/>
+        <view class="error">手机号码格式有误，请检查是否正确？</view>
+    </view> 
+    <view class="account-box  {{tools.checkIsHasKey(errIndexList,'2')?'active':''}}">
+      <input class="password" type="number" maxlength="6" data-index="2" model:value="{{params.phoneUuid}}" bindinput="getCheck" placeholder="输入验证码" placeholder-style="color: #DFDFDF;font-size: 28rpx;font-weight: 500;"/>
+      <view class="code-btn" wx:if="{{resend}}" bindtap="countdown">{{tipDesc}}</view>
+      <view class="code-btn" wx:else>{{counter}}秒后重新获取</view>
+      <view class="error">验证码不正确！</view>
+    </view>
+    <view class="account-box  {{tools.checkIsHasKey(errIndexList,'3')?'active':''}}">
+      <input class="password" maxlength="20" type="password"  data-index="3" model:value="{{params.firstPassword}}" bindinput="getCheck" placeholder="设置新密码" placeholder-style="color: #DFDFDF;font-size: 28rpx;font-weight: 500;"/>
+      <view class="error">密码格式有误,请重新输入！</view>
+    </view>
+    <view class="account-box {{tools.checkIsHasKey(errIndexList,'4') || tools.checkIsHasKey(errIndexList,'5')?'active':''}}">
+      <input class="password" maxlength="20" type="password" model:value="{{params.confirmPassword}}" data-index="4" bindinput="getCheck" placeholder="再次输入密码" placeholder-style="color: #DFDFDF;font-size: 28rpx;font-weight: 500;"/>
+      <view class="error" wx:if="{{tools.checkIsHasKey(errIndexList,'4')}}">密码格式有误,请重新输入！</view>
+      <view class="error" wx:if="{{tools.checkIsHasKey(errIndexList,'5')}}">两次密码输入不一致！</view>
+    </view>
+    <view class="login-btn active" bindtap="save">
+    提交
+    </view>
+    <view class="go-login" data-page="login" bindtap="goPage">去登录</view>
+  </view>
+</view>
+<wxs src="../../utils/check.wxs" module="tools" />

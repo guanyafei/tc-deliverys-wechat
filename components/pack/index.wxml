@@ -1,0 +1,44 @@
+<!--index.wxml-->
+<view class="pack">
+   <view class="wrap">
+     <view class="pack-top">
+      包装服务
+      <view class="close-wrap" bindtap="closed" ><image  class="close" src="../../assets/images/close@2x.png"></image></view>
+     </view>
+     <view class="pack-center">
+        <text class="desc-one">多种专业包装选择，为您的货品提供安全保障。</text>
+        <text class="desc-two">如果您选择购买包装服务，除包装服务费外，因包装本身的重量或体积重量，运费也会相应增加。</text>
+        <view class="pack-center-wrap">
+          <view class="pack-item" wx:key="index" wx:for="{{initList}}">
+            <view class="pack-item-top">
+              <view class="pack-item-top-left" data-index="{{index}}" catchtap="selectItem">
+                <image class="selected" src="{{item.num>0?'../../assets/images/select1@2x.png':'../../assets/images/select_1@2x.png'}}"></image>
+                <view class="name">{{item.twoName}}</view>
+                <view class="price" wx:if="{{item.isShow == 1 && item.showPrice}}">{{item.showPrice}}元</view>
+              </view>
+              <view class="pack-item-top-right">
+                <view class="slice" catchtap="reduce" data-index="{{index}}">
+                  <image src="../../assets/images/slice@2x.png"></image>
+                </view>
+                <input class="weight" type="number" bindinput="getNum" bindfocus="resetFocusInput" bindblur="resetBlurInput" data-index="{{index}}" model:value="{{item.num}}"/>
+                <view class="add" catchtap="add" data-index="{{index}}">
+                  <image src="../../assets/images/add@2x.png"></image>
+                </view>
+              </view>
+            </view>
+            <view class="pack-item-center">
+              <view class="pack-item-weight">包装重量：<text>—</text></view>
+              <view class="pack-item-volume">包装体积：<text>{{item.volume?item.volume:'--'}}m³</text></view>
+            </view>
+            <view class="pack-item-standard">
+              包装规格：<text>{{item.spec}}</text>
+            </view>
+          </view>
+        </view>
+     </view> 
+     <view class="pack-bottom">
+      <view class="cancle"  bindtap="closed">取消</view>
+       <view class="sure" bindtap="save">确定</view>
+     </view>
+   </view>
+</view>

@@ -1,0 +1,27 @@
+<!--index.wxml-->
+<view class="added">
+  <view class="added-wrap">
+    <view class="item" wx:key="index" wx:if="{{item.oneCode =='SR' || item.oneCode == 'PK'}}" data-index="{{index}}" wx:for="{{list}}" catchtap="showDia">
+      <view class="item-top">
+        <view class="item-top-left">{{item.oneName}}</view>
+        <image class="selected" data-index="{{index}}" catchtap="showAddVaule" src="{{tools.checkIsHasKey(selectList,item.oneCode)?'../../assets/images/seclect@2x.png':'../../assets/images/select_3@2x.png'}}"></image>
+      </view>
+      <view class="desc-one">{{item.describes}}</view>
+      <!-- <view class="desc2-two"></view>
+      <view class="price">
+        ¥ <text>{{item.isShow == '0'?'--':item.showPrice}}</text>元 
+      </view> -->
+    </view>
+    <view class="mask"></view>
+  </view>
+  <view class="added-bottom">
+     <view class="added-bottom-left">
+       <text>费用合计：</text><text class="price">¥ {{allTotal}}</text><text class="detail" bindtap="showaddeddetail">明细</text>
+     </view>
+     <view class="added-bottom-right" bindtap="save">确定</view>
+  </view>
+  <addedDetail wx:if="{{showAddedDetail}}" packTotal="{{packTotal}}" cashBackTotal="{{cashBackTotal}}" bindcloseaddeddetail="closeaddeddetail"></addedDetail>
+  <pack wx:if="{{showPack}}" hasSelectedPackList="{{hasSelectedPackList}}" addedPackList="{{addedPackList}}" bindclosePack="closePack" bindgetPack="getPack"></pack>
+  <cashBack wx:if="{{showCashBack}}" hasSelectedCashBackList="{{hasSelectedCashBackList}}" addedCashBackList="{{addedCashBackList}}" bindcloseCashBack="closeCashBack" bindgetCashPack="getCashPack"></cashBack>
+</view>
+<wxs src="../../utils/check.wxs" module="tools" />

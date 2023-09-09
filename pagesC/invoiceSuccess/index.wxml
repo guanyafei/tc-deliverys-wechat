@@ -1,0 +1,5 @@
+<view class="invoice-success">
+  <image class="logo" src="../../assets/images/success@2x.png"></image>
+  <view class="tip">申请成功</view>
+  <view class="btn" bindtap="goBack">确定</view>
+</view>

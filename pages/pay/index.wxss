@@ -1,0 +1,103 @@
+/**index.wxss**/
+.pay{
+  background: #F2F3F7;
+  min-height: 100vh;
+  padding: 24rpx 28rpx 0;
+  box-sizing: border-box;
+}
+.pay .pay-top{
+  width: 694rpx; 
+  background: #FFFFFF;
+  border-radius: 12rpx;
+  padding: 38rpx 18rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+.pay .pay-top .pay-top-left,.pay .pay-top .pay-top-right{
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #2F2F2F;
+}
+.pay .pay-center{
+  width: 694rpx;
+  height: 472rpx;
+  background: #FFFFFF;
+  border-radius: 12rpx;
+  margin-top: 24rpx;
+  padding: 36rpx 18rpx 56rpx;
+  box-sizing: border-box;
+}
+.pay .pay-center .pay-bottom-top{
+  font-size: 64rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #2F2F2F;
+  padding-bottom: 46rpx;
+  box-sizing: border-box;
+  text-align: center;
+  border-bottom: 2rpx dashed #DCDCDC;
+  margin-bottom: 18rpx;
+}
+.pay .pay-center .pay-bottom-item{
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  margin-bottom: 8rpx;
+}
+.pay .pay-center .pay-bottom-item view{
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #2F2F2F;
+}
+.pay .pay-center .pay-bottom-item:nth-of-type(2) .item-left{
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(47, 47, 47, 0.6);
+}
+.pay .pay-center .pay-bottom{
+  border-top: 2rpx solid #DCDCDC;
+  box-sizing: border-box;
+  padding-top: 46rpx;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 22rpx;
+}
+.pay .pay-center .pay-bottom view{
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #2F2F2F;
+}
+.pay .btn{
+  width: 638rpx;
+  height: 96rpx;
+  background: #3260EB;
+  border-radius: 54rpx;
+  text-align: center;
+  line-height: 96rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+  margin: 62rpx auto 0;
+}
+.pay .tel{
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(47, 47, 47, 0.6);
+  text-align: center;
+  margin-top: 30rpx;
+  padding-bottom: 40rpx;
+}
+.pay .tip{
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(47, 47, 47, 0.6);
+  margin-top: 210rpx;
+}

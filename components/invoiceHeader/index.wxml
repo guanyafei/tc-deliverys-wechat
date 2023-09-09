@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<view class="invoice-header">
+  <view class="item" wx:key="index" data-id="{{item.id}}" wx:for="{{list}}" data-page="invoiceHeaderDetail" catchtap="goPage">
+    <view class="item-top">
+      <view class="item-top-left">{{item.invoiceRise}}</view>
+      <view class="item-top-right" wx:if="{{item.authenticationType=='2'}}">增值税专用发票</view>
+      <view class="item-top-right" wx:if="{{item.authenticationType=='1'}}">增值税电子普通发票</view>
+    </view>
+    <view class="item-center" wx:if="{{item.riseType=='1'}}">{{item.businessDuty}}</view>
+    <view class="item-center" wx:else>{{tools.toHide(item.phone)}}</view>
+    <view class="item-bottom">
+      <view class="item-bottom-left">{{tools.setInvoiceHeader(item.riseType)}}</view>
+      <view class="item-bottom-right">
+        <text class="tip" wx:if="{{item.isDefault=='0'}}" data-id="{{item.id}}" catchtap="setDefault">设为默认抬头</text>
+        <image class="edit" data-id="{{item.id}}" data-page="invoiceHeader" catchtap="goPage" src="../../assets/images/bianji@2x.png"></image>
+        <image class="del" data-isDefault="{{item.isDefault}}" data-id="{{item.id}}" catchtap="del" src="../../assets/images/del@2x.png"></image>
+      </view> 
+    </view>
+  </view>
+</view>
+<wxs src="../../utils/check.wxs" module="tools" />

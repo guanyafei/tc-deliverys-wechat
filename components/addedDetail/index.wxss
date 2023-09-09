@@ -1,0 +1,59 @@
+/**index.wxss**/
+.added-detail{
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.added-detail .added-wrap{
+  background: #FFFFFF;
+  border-radius: 32rpx 32rpx 0rpx 0rpx;    
+  position: absolute;
+  bottom: 110rpx;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 28rpx 16rpx;
+  box-sizing: border-box;
+}
+.added-detail .added-wrap .added-top{
+  height: 122rpx;
+  background: #FFFFFF;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #252525;
+  line-height: 122rpx;
+  text-align: center;
+  position: relative;
+}
+.added-detail .added-wrap .added-top .close{
+  width: 26rpx;
+  height: 26rpx;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -13rpx;
+}
+.added-detail .added-wrap .item{
+  height: 110rpx;
+  border-bottom: 2rpx solid #D7D7D7;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.added-detail .added-wrap .item .item-left{
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(47, 47, 47, 0.8);
+}
+.added-detail .added-wrap .item .item-right{
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(47, 47, 47, 0.6);
+}

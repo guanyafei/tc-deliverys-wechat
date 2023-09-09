@@ -1,0 +1,19 @@
+<view class="header-list"  wx:if="{{list.length>0}}">
+  <view class="list-top">
+    <input class="search" type="text" bindconfirm="gotSearch"  model:value="{{searchValue}}" confirm-type="search" placeholder="公司名称/纳税人识别号" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 24rpx;"/>
+    <image class="search-img" src="../../assets/images/search@2x.png"></image>
+  </view>
+  <view class="list-wrap">
+    <view class="item"  wx:key="index" data-index="{{index}}" bindtap="getSelectItem" wx:for="{{list}}">
+      <view class="item-top">
+        <view class="item-top-left">{{item.invoiceRise}}</view>
+        <view class="item-top-right" wx:if="{{item.isDefault=='1'}}">默认</view>
+      </view>
+      <view class="item-center" wx:if="{{item.riseType=='1'}}">{{item.businessDuty}}</view>
+      <view class="item-center" wx:else>{{tools.toHide(item.phone)}}</view>
+      <view class="item-bottom">{{tools.setInvoiceHeader(item.riseType)}}</view>
+    </view>
+  </view>
+</view>
+<view class="no-data" wx:else>暂无数据</view>
+<wxs src="../../utils/check.wxs" module="tools" />

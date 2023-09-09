@@ -1,0 +1,81 @@
+/**index.wxss**/
+.invoice-header{
+  background: #F2F3F7;
+}
+.invoice-header .item{
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  padding: 14rpx 20rpx 22rpx 30rpx;
+  box-sizing: border-box;
+  margin-bottom: 24rpx;
+}
+.invoice-header .item .item-top{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12rpx;
+}
+.invoice-header .item .item-top .item-top-left{
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #2F2F2F;
+  flex: 1;
+}
+.invoice-header .item .item-top .item-top-right{
+  font-size: 20rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #FFFFFF;
+  background: linear-gradient(180deg, #7CA8F7 0%, #466FED 100%);
+  border-radius: 4rpx;
+  padding: 6rpx 14rpx;
+  max-width: 248rpx;
+  box-sizing: border-box;
+  flex-shrink: 1;
+}
+.invoice-header .item  .item-center{
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(47, 47, 47, 0.6);
+  margin-bottom: 14rpx;
+}
+.invoice-header .item .item-bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.invoice-header .item .item-bottom .item-bottom-left{
+  width: 134rpx;
+  height: 40rpx;
+  border-radius: 4rpx;
+  border: 2rpx solid #3260EB;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 39rpx;
+  font-size: 20rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #466FED;
+}
+.invoice-header .item .item-bottom .item-bottom-right {
+  display: flex;
+  align-items: center;
+}
+.invoice-header .item .item-bottom .item-bottom-right .tip{
+  font-size: 24rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: rgba(47, 47, 47, 0.6);
+  margin-right: 48rpx;
+}
+.invoice-header .item .item-bottom .item-bottom-right .edit{
+  width: 30rpx;
+  height: 32rpx;
+  margin-right: 52rpx;
+}
+.invoice-header .item .item-bottom .item-bottom-right .del{
+  width: 30rpx;
+  height: 34rpx;
+}

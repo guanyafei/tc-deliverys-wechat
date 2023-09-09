@@ -1,0 +1,139 @@
+/**index.wxss**/
+.time-picker{
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+.time-picker .wrap{
+  background: #FFFFFF;
+  border-radius: 32rpx 32rpx 0rpx 0rpx;    
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 28rpx;
+  box-sizing: border-box;
+}
+.time-picker .picker-top{
+  height: 122rpx;
+  background: #FFFFFF;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #252525;
+  line-height: 122rpx;
+  text-align: center;
+  position: relative;
+}
+.time-picker .picker-top .close-wrap{
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -30rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+.time-picker .picker-top .close{
+  width: 26rpx;
+  height: 26rpx;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -13rpx;
+}
+.time-picker .picker-center{
+  display: flex;
+}
+.time-picker .picker-center .picker-left{
+  width: 190rpx;
+}
+.time-picker .picker-center .picker-right{
+  flex: 1;
+  height: 450rpx;
+  overflow-y: auto;
+}
+.time-picker .picker-center .picker-left .picker-item{
+  height: 138rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #252525;
+  background-color: #EBEBEB;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.time-picker .picker-center .picker-left text{
+  margin-top: 4rpx;
+}
+.time-picker .picker-center .picker-left .active{
+  background-color: #fff;
+}
+.time-picker .picker-center .picker-right .picker-item{
+  height: 90rpx;
+  border-bottom: 2rpx solid #EBEBEB;
+  box-sizing: border-box;
+  line-height: 90rpx;
+  padding-left: 82rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #252525;
+}
+.time-picker .picker-center .picker-right .picker-item:last-child{
+  border-bottom: none;
+}
+.time-picker .picker-center .picker-right .active{
+  background: rgba(50, 96, 235, 0.05);
+  color: #3260EB;
+  /* border-bottom: none; */
+}
+.time-picker .picker-center .picker-right .selected{
+  display: none;
+}
+.time-picker .picker-center .picker-right .active .selected{
+  width: 24rpx;
+  height: 18rpx;
+  float: right;
+  margin-top: 36rpx;
+  margin-right: 28rpx;
+  display: block;
+}
+.time-picker .picker-bottom{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 74rpx;
+  margin-bottom: 22rpx;
+}
+.time-picker .picker-bottom .cancle{
+  width: 290rpx;
+  height: 96rpx;
+  border-radius: 54rpx;
+  opacity: 0.9;
+  border: 2rpx solid #466FED;
+  box-sizing: border-box;
+  line-height: 96rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #466FED;
+  }
+  .time-picker .picker-bottom .sure{
+    width: 290rpx;
+    height: 96rpx;
+    border-radius: 54rpx;
+    opacity: 0.9;
+    background: #3260EB;
+    line-height: 96rpx;
+    text-align: center;
+    font-size: 32rpx;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #FFFFFF;
+    }

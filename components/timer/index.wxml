@@ -1,0 +1,53 @@
+<!--index.wxml-->
+<view class="time-picker">
+   <view class="wrap">
+     <view class="picker-top">
+      选择时间
+      <view class="close-wrap"bindtap="cancle"><image class="close" src="../../assets/images/close@2x.png"></image></view>
+     </view>
+     <view class="picker-center">
+       <view class="picker-left">
+           <view wx:if="{{isShowCurDayTab}}" class="picker-item {{dayIndex=='0'?'active':''}}" data-dayindex="0" bindtap="select">
+            <view>{{tools.setFormateDate(0)}}</view>
+            <text>（今天）</text>
+           </view>
+           <view class="picker-item {{dayIndex=='1'?'active':''}}" data-dayindex="1" bindtap="select">
+            <view>{{tools.setFormateDate(1)}}</view>
+            <text>（明天）</text>
+           </view>
+           <view class="picker-item {{dayIndex=='2'?'active':''}}" data-dayindex="2" bindtap="select">
+            <view>{{tools.setFormateDate(2)}}</view>
+            <text>（后天）</text>
+           </view>
+       </view>
+       <view class="picker-right">
+         <!-- 今天 -->
+         <view class="picker-right-wrap" wx:if="{{dayIndex=='0'}}">
+          <view class="picker-item  {{dayIndex=='0' && timeIndex==index?'active':''}}" wx:key="index"  wx:for="{{periodList}}" data-timeindex="{{index}}" bindtap="selectTime">
+            {{item}}
+          <image class="selected" src="../../assets/images/dui@2x.png"></image>
+          </view>
+         </view>
+         <!-- 明天-->
+         <view class="picker-right-wrap" wx:if="{{dayIndex=='1'}}">
+          <view class="picker-item  {{dayIndex=='1' && timeIndex==index?'active':''}}" wx:key="index" wx:for="{{periodList}}" data-timeindex="{{index}}" bindtap="selectTime">
+            {{item}}
+          <image class="selected" src="../../assets/images/dui@2x.png"></image>
+          </view>
+         </view>
+         <!-- 后天 -->
+         <view class="picker-right-wrap" wx:if="{{dayIndex=='2'}}">
+          <view class="picker-item  {{dayIndex=='2' && timeIndex==index?'active':''}}"  wx:key="index" wx:for="{{periodList}}" data-timeindex="{{index}}" bindtap="selectTime">
+            {{item}}
+          <image class="selected" src="../../assets/images/dui@2x.png"></image>
+          </view>
+         </view>
+       </view>
+     </view>
+     <view class="picker-bottom">
+       <view class="cancle" bindtap="cancle">取消</view>
+       <view class="sure" bindtap="save">确定</view>
+     </view>
+   </view>
+</view>
+<wxs src="../../utils/check.wxs" module="tools" />

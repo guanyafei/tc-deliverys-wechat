@@ -1,0 +1,60 @@
+<!--index.wxml-->
+<view class="my">
+  <view class="banner">
+    <view class="login-wrap">
+      <view class="login-left" data-page="personal" bindtap="goPage">
+        <image class="logo" src="{{userInfo.avatar}}"></image>
+      </view>
+      <view class="login-info">
+        <view class="no-login" wx:if="{{userInfo.consumerName ==''}}">
+          <view class="login" data-page="login" bindtap="goPage">去登录</view>
+          <view class="register" data-page="register" bindtap="goPage">注册</view>
+        </view>
+        <view class="have-login" wx:else>
+          <view class="tel">{{tools.toHide(userInfo.phonenumber)}}
+          <image class="status" wx:if="{{userInfo.consumerSignStatus==0}}" src="../../assets/images/wqy@2x.png"></image>
+          <image class="status yqy" wx:else src="../../assets/images/yqy@2x.png"></image>
+          </view>
+          <view class="company">{{userInfo.consumerName}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="my-center">
+      <view class="item" wx:if="{{signStatus == 1}}" data-page="sendAddress" bindtap="goPage">
+        <image src="../../assets/images/dizhi@2x.png" class="img"></image>
+        <view class="name">寄件地址</view>
+      </view>
+      <view class="item" data-page="addressBook" bindtap="goPage">
+        <image src="../../assets/images/dzb_1@2x.png" class="img"></image>
+        <view class="name">地址簿</view>
+      </view>
+      <!-- <view class="item" data-page="news" bindtap="goPage">
+        <image src="../../assets/images/phgl@2x.png" class="img"></image>
+        <view class="name">偏好管理</view>
+      </view> -->
+    </view>
+  </view>
+  <view class="service">服务工具</view>
+  <view class="service-item" data-page="serviceQuery" bindtap="goPage">
+    <view class="service-item-left">
+      <image class="img" src="../../assets/images/wjcx@2x.png"></image>
+      <view class="name">服务查询</view>
+    </view>
+    <image class="service-item-right" src="../../assets/images/go-r@2x.png"></image>
+  </view>
+  <view class="service-item" data-page="invoice" bindtap="goPage">
+    <view class="service-item-left">
+      <image class="img" src="../../assets/images/fp@2x.png"></image>
+      <view class="name">发票服务</view>
+    </view>
+    <image class="service-item-right" src="../../assets/images/go-r@2x.png"></image>
+  </view>
+  <view class="service-item" bindtap="makeCall">
+    <view class="service-item-left">
+      <image class="img" src="../../assets/images/kf@2x.png"></image>
+      <view class="name">客服电话</view>
+    </view>
+    <image class="service-item-right" src="../../assets/images/go-r@2x.png"></image>
+  </view>
+</view>
+<wxs src="../../utils/check.wxs" module="tools" />

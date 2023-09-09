@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "时效查询",
+  "usingComponents": {
+    "address":"/components/usefulAddress/index",
+    "timer":"/components/timer/index"
+  }
+}

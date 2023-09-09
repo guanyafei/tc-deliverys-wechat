@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "运单追踪",
+  "usingComponents": {
+    "item":"/components/item/index"
+  }
+}

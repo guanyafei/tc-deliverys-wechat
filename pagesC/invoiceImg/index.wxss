@@ -1,0 +1,22 @@
+/**index.wxss**/
+.invoice-img{
+  min-height: 100vh;
+  background: #F2F3F7;
+  padding: 24rpx 16rpx 6rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.invoice-img .page-img{
+  width: 100%;
+}
+.invoice-img .tel{
+  position: absolute;
+  bottom: 18rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(47, 47, 47, 0.6);
+  text-align: center;
+}

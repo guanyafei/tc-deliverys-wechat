@@ -1,0 +1,55 @@
+<view class="invoice">
+  <view class="invoice-top">
+    <view class="invoice-top-wrap">
+      <view class="invoice-top-left">
+        <input class="search" type="text" bindconfirm="onSearch"  model:value="{{searchKey}}" confirm-type="search" placeholder="{{searchPlaceholder}}" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 24rpx;"/>
+        <image class="search-img" src="../../assets/images/search@2x.png"></image>
+      </view>
+      <!-- <image class="invoice-top-right" bindtap="onScanCode"  src="../../assets/images/sys@2x.png"></image> -->
+    </view>
+    <view class="select-wrap">
+      <view class="select-item {{index==1?'selected':''}}" data-index="1" catchtap="selected">
+        <text>申请开票</text>
+        <view class="arrow" data-index="1" catchtap="dropDown">
+          <image src="{{index==1?'../../assets/images/xl1@2x.png':'../../assets/images/xl2@2x.png'}}"></image>
+          <view class="drop-down" wx:if="{{dropIndex==1}}">
+            <image class="top-arrow" src="../../assets/images/sa@2x.png"></image>
+            <view class="drop-item {{sendIndex==index?'active':''}}" wx:for="{{sendStatus}}" data-index="{{index}}" wx:key="index" data-mod="send" catchtap="selectStatus">{{item}}</view>
+          </view>
+        </view>
+      </view>
+      <view  class="select-item {{index==2?'selected':''}}" data-index="2" catchtap="selected">
+        <text>开票记录</text>
+      </view>
+      <view class="select-item {{index==3?'selected':''}}" data-index="3" catchtap="selected">
+        <text>发票抬头</text>
+      </view>
+    </view>
+  </view>
+  <view class="invoice-list">
+    <invoiceItem id="invoiceItem" wx:if="{{index=='1'}}" bindsetAwaitInvoiceBillList="setAwaitInvoiceBillList" bindonSetInvoiceIdList="onSetInvoiceIdList"></invoiceItem>
+    <invoiceRecord id="invoiceRecord" wx:if="{{index=='2'}}"></invoiceRecord>
+    <invoiceHeader id="invoiceHeader" wx:if="{{index=='3'}}"></invoiceHeader>
+  </view>
+  <view class="time-tip"  wx:if="{{index=='1'}}">{{sendTip}}可开票数据</view>
+  <view class="mask" wx:if="{{index=='1' || index=='3'}}"></view>
+  <view class="btn-warp" wx:if="{{index=='1'}}">
+    <view class="select-all" bindtap="onSelectAll">
+      <image class="select" src="{{selectAllFlag?'../../assets/images/seclect@2x.png':'../../assets/images/select_3@2x.png'}}"></image>
+      <view class="tip">全选</view>
+    </view>
+    <view class="counter">
+      <view class="tip">已选</view>
+      <view class="num">{{invoiceIdList.length}}</view>
+    </view>
+    <view class="line"></view>
+    <view class="price">
+      <view class="tip">开票金额</view>
+      <view class="num">￥{{totalPrice}}</view>
+    </view>
+    <view class="btn" data-page="invoiceApply" bindtap="goPage">申请开票</view>
+  </view>
+  <view class="add-btn-wrap" wx:if="{{index=='3'}}">
+    <view class="add-btn" data-page="invoiceHeader" bindtap="goPage">添加发票抬头</view>
+  </view>
+</view>

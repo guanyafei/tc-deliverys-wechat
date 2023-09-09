@@ -1,0 +1,171 @@
+<!--index.wxml-->
+<view class="order-item {{tools.setClass(item.status)}}" wx:key="index" wx:for="{{tempList}}" data-id="{{item.orderNo}}" data-index="{{index}}" data-page="detail"  catchtap="goPage">
+  <view class="item-top">
+    <view class="item-top-left">
+      <view class="select-wrap" wx:if="{{item.status==3}}" data-index="{{index}}" data-id="{{item.orderNo}}" bindtap="selectItem">
+        <image class="select" src="{{item.isSelected==2?'../../assets/images/select1@2x.png':'../../assets/images/select_1@2x.png'}}"></image>
+      </view>
+      <block wx:if="{{item.waybillNo}}">
+        <view class="order">{{item.waybillNo}}</view>
+        <view class="copy-wrap" data-transferno="{{item.waybillNo}}" catchtap="copyOrderNo"><image class="copy"  src="../../assets/images/copy@2x.png"></image></view>
+      </block>
+      <view class="news-wrap"  wx:if="{{item.status==3}}" data-id="{{item.orderNo}}" catchtap="notify"><image class="news" src="../../assets/images/xiaoxi@2x.png"></image></view>
+    </view>
+    <image class="item-top-right" src="{{tools.setArrivalType(item.serviceProduct)}}"></image>
+  </view>
+  <view class="item-center">
+    <view class="item-name">{{item.consignor}}</view>  
+    <block wx:if="{{item.orderType=='2' && item.status==8&&item.orderIntercept!='1'}}">
+      <view class="item-line jsfh" wx:if="{{filterStatus!='YC' && filterStatus!='HD' && item.orderType=='2' && item.status==8}}">
+          <view class="item-line-top">
+          </view>
+          <view class="item-line-center">
+            <image src="../../assets/images/jsfh@2x.png"></image>
+          </view>
+          <view class="item-line-bottom">拒收返回</view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="item-line ysz" wx:if="{{filterStatus!='YC' && filterStatus!='HD' && item.status==6&&item.orderIntercept!='1'}}">
+        <view class="item-line-top">
+          <image src="../../assets/images/ysz@2x.png"></image>
+        </view>
+        <view class="item-line-center">
+          <image src="../../assets/images/line1@2x.png"></image>
+        </view>
+        <view class="item-line-bottom">运输中</view>
+      </view>
+      <view class="item-line" wx:if="{{filterStatus!='YC' && filterStatus!='HD' && item.status==3&&item.orderIntercept!='1'}}">
+          <view class="item-line-top">
+            <image src="../../assets/images/dd@2x.png"></image>
+          </view>
+          <view class="item-line-center">
+            <view class="dls-line"></view>
+          </view>
+          <view class="item-line-bottom">待揽收</view>
+      </view>
+      <view class="item-line" wx:if="{{filterStatus!='YC' && filterStatus!='HD' && item.status==1&&item.orderIntercept!='1'}}">
+          <view class="item-line-top">
+            <!-- <image src="../../assets/images/dd@2x.png"></image> -->
+          </view>
+          <view class="item-line-center"> 
+            <view class="dls-line"></view>
+          </view>
+          <view class="item-line-bottom">已下单</view>
+      </view>
+      <view class="item-line" wx:if="{{filterStatus!='YC' && filterStatus!='HD' && item.status==4&&item.orderIntercept!='1'}}">
+        <view class="item-line-top">
+        </view>
+        <view class="item-line-center">
+          <image src="../../assets/images/line2@2x.png"></image>
+        </view>
+        <view class="item-line-bottom">揽收终止</view>
+      </view>
+      <view class="item-line" wx:if="{{filterStatus!='YC' && filterStatus!='HD' && item.status==9&&item.orderIntercept!='1'}}">
+        <block wx:if="{{item.orderType=='2'}}">
+          <view class="item-line-top jsfhs">
+            拒收返回
+          </view>
+          <view class="item-line-center jsfhs">
+            <image src="../../assets/images/jsfh@2x.png"></image>
+          </view>
+          <view class="item-line-bottom jsfhs">已签收</view>
+        </block>
+        <block wx:else>
+          <view class="item-line-top">
+          </view>
+          <view class="item-line-center">
+            <view class="yqs-line"></view>
+          </view>
+          <view class="item-line-bottom">已签收</view>
+        </block>
+      </view>
+      <view class="item-line" wx:if="{{filterStatus!='YC' && filterStatus!='HD' && item.status==5&&item.orderIntercept!='1'}}">
+        <view class="item-line-top">
+          <image src="../../assets/images/yls@2x.png"></image>
+        </view>
+        <view class="item-line-center">
+        </view>
+        <view class="item-line-bottom">已揽收</view>
+      </view>
+      <view class="item-line psz" wx:if="{{filterStatus!='YC' && filterStatus!='HD' && item.status==7&&item.orderIntercept!='1'}}">
+        <view class="item-line-top">
+          <image src="../../assets/images/icon8_1@2x.png"></image>
+        </view>
+        <view class="item-line-center">
+          <image src="../../assets/images/line1@2x.png"></image>
+        </view>
+        <view class="item-line-bottom">派送中</view>
+      </view>
+      <view class="item-line" wx:if="{{filterStatus=='YC' && item.orderIntercept=='1' || item.orderIntercept=='1'}}">
+          <view class="item-line-top">
+            <image src="../../assets/images/lj@2x.png"></image>
+          </view>
+          <view class="item-line-center">
+          </view>
+          <view class="item-line-bottom">已拦截</view> 
+      </view>
+      <view class="item-line" wx:if="{{filterStatus!='YC' && filterStatus!='HD' && item.status==2&&item.orderIntercept!='1'}}">
+          <view class="item-line-top">
+          </view>
+          <view class="item-line-center">
+            <view class="yqx-line"></view>
+          </view>
+          <view class="item-line-bottom">已取消</view>
+      </view>
+      <view class="item-line" wx:if="{{filterStatus!='YC' && filterStatus!='HD' && item.status==8 && item.orderType!='2'&&item.orderIntercept!='1'}}">
+          <view class="item-line-top">
+          </view>
+          <view class="item-line-center">
+            <view class="yqx-line"></view>
+          </view>
+          <view class="item-line-bottom">已拒签</view>
+      </view>
+      <view class="item-line jsfh" wx:if="{{filterStatus=='HD'}}">
+          <view class="item-line-top">
+          </view>
+          <view class="item-line-center">
+            <image src="../../assets/images/jsfh@2x.png"></image>
+          </view>
+          <view class="item-line-bottom">回单</view>
+      </view>
+    </block>
+    <view class="item-name">{{item.consignee}}</view>
+  </view>
+  <view class="item-bottom">
+    <view class="time" wx:if="{{item.operateTime}}">{{item.operateTime}}</view>
+    <view class="site" wx:if="{{item.routeContent}}">{{item.routeContent}}</view>
+    <view class="price-wrap">
+      <view class="price-wrap-left">
+        合计费用：<view class="price">¥ {{item.sumPrice || '0'}}</view>
+      </view>
+      <view class="price-wrap-right"
+        data-index="{{index}}" catchtap="onClickItem"
+        wx:if="{{((item.status==2||item.status==4 || item.status==3 || item.status==5 || item.status==6 || (filterStatus=='YC' && item.orderIntercept=='1') || item.status==9)&&itemIndex==1) || itemIndex==2 || itemIndex==3}}"
+        >
+        <image class="more" src="../../assets/images/more@2x.png"></image>
+        <view class="more-warp" wx:if="{{index == selectIndex}}">
+          <image class="top-arrow" src="../../assets/images/sa@2x.png"></image>
+          <view class="more-item" data-id="{{item.orderNo}}" data-index="{{index}}"
+            wx:if="{{((item.status==2||item.status==3 || item.status==5 || item.status==6 || item.status=='YC' || item.status==9 || item.status==4)&&itemIndex==1) || itemIndex==2 || itemIndex==3 }}"
+            data-page="detail"  catchtap="goPage">详情</view>
+          <view class="more-item" wx:if="{{(item.status==2||item.status==3 || item.status=='YC')&&itemIndex==1}}"
+            data-id="{{item.orderNo}}" data-page="order" data-type="bj" catchtap="goPage">编辑</view> 
+          <view class="more-item" wx:if="{{(item.status==9 || item.status==4)&&itemIndex==1}}" data-type="zlyd" data-id="{{item.orderNo}}" data-page="order"
+            catchtap="goPage">再来一单</view>
+          <view class="more-item" wx:if="{{itemIndex==3 && (item.settlementType == '2' || item.settlementType == '3' ) && (item.paymentState=='1' || item.paymentState=='3')}}" data-index="{{index}}" data-id="{{item.orderNo}}" data-page="pay" catchtap="goPage">
+            去支付</view>
+          <view class="more-item" wx:if="{{(item.status==3 || item.status==6)&&itemIndex==1 && item.orderIntercept!='1'}}"
+            data-id="{{item.orderNo}}" catchtap="onCancle">取消</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="toast" wx:if="{{copyToast}}">
+    <image class="imgs" src="../../assets/images/dh@2x.png"></image>运单号复制成功
+  </view>
+  <view class="toast" wx:if="{{notifyToast}}">
+    <image class="imgs" src="../../assets/images/dh@2x.png"></image>催揽消息发送成功
+  </view>
+</view>
+<wxs src="../../utils/check.wxs" module="tools" />

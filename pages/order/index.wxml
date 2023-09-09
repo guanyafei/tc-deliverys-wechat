@@ -1,0 +1,150 @@
+<!--index.wxml-->
+<view class="order">
+  <view class="order-top">
+    <view class="user-box">
+    <view class="sender">
+      <view class="logo">
+        <image class="img" src="../../assets/images/jj@2x.png"></image>
+      </view>
+      <view class="info-box">
+        <view class="info {{params.consignorProvince == ''?'no-info':''}}  {{signStatus=='1'?'sign-style':''}}" data-type="0" data-page="userInfo" bindtap="goPage">
+          <block wx:if="{{params.consignorProvince != ''}}">
+            <view class="user">
+              <text class="name">{{params.consignor}}</text>
+              <text class="tel">{{tools.toHide(params.consignorPhone)}}</text>
+            </view>
+            <view class="company">{{params.consignorCompanyName?params.consignorCompanyName:''}}</view>
+            <view class="address">{{params.consignorProvinceName}}{{params.consignorCityName}}{{params.consignorDistrictName}}{{params.consignorStreetName}}{{params.consignorDetailAddress}}</view>
+          </block> 
+          <block wx:else>
+            <view class="top">
+              <text class="star">*</text>寄件人信息
+            </view>
+            <view class="tip">输入收件人信息</view>
+          </block>
+        </view>
+      <view class="address-book" wx:if="{{signStatus != '1'}}" data-type="0" data-page="addressBookList" bindtap="goPage">
+        <image class="book-logo" src="../../assets/images/dzb@2x.png"></image>
+        <text>地址簿</text>
+      </view> 
+      </view>
+    </view>
+    <view class="recipient">
+      <view class="logo">
+        <image class="img" src="../../assets/images/sj@2x.png"></image>
+      </view>
+      <view class="info-box">
+        <view class="info  {{params.consigneeProvince == ''?'no-info':''}}"  data-type="1" data-page="userInfo" bindtap="goPage">
+          <block wx:if="{{params.consigneeProvince != ''}}">
+            <view class="user">
+              <text class="name">{{params.consignee}}</text>
+              <text class="tel">{{tools.toHide(params.consigneePhone)}}</text>
+            </view>
+            <view class="company">{{params.consigneeCompanyName?params.consigneeCompanyName:''}}</view>
+            <view class="address">{{params.consigneeProvinceName}}{{params.consigneeCityName}}{{params.consigneeDistrictName}}{{params.consigneeStreetName}}{{params.consigneeDetailAddress}}</view>
+          </block> 
+          <block wx:else>
+            <view class="top">
+              <text class="star">*</text>收件人信息
+            </view>
+            <view class="tip">输入收件人信息</view>
+          </block>
+        </view>
+      <view class="address-book" data-type="1" data-page="addressBookList" bindtap="goPage">
+        <image class="book-logo" src="../../assets/images/dzb@2x.png"></image>
+        <text>地址簿</text>
+      </view>
+      </view>
+    </view>
+  </view>
+    <view class="goods">
+      <view class="item">
+        <view class="item-left">
+          <text class="star">*</text>期望上门取货时间
+        </view>
+        <view class="item-right"  bindtap="getTimerPicker">
+          <view class="placeholders">{{expectCollectTime}}</view>
+          <image class="right-arrow" src="../../assets/images/right@2x.png"></image>
+        </view>
+      </view>
+      <view class="item">
+        <view class="item-left">
+          <text class="star">*</text>物品信息
+        </view>
+        <view class="item-right"  data-page="goods" bindtap="goPage">
+          <view class="placeholders" wx:if="{{params.goodsName == '' && standardDesc == ''}}">请完善物品信息</view>
+          <view class="goods-info" wx:else>
+            <view class="placeholders goods-name">{{params.goodsName}}</view>
+            <view class="placeholders goods-details">{{standardDesc}}</view>
+          </view>
+          <image class="right-arrow" src="../../assets/images/right@2x.png"></image>
+        </view>
+      </view>
+      <view class="item" bindtap="showPayType">
+        <view class="item-left">
+          <text class="star">*</text>结算方式
+        </view>
+        <view class="item-right">
+          <view class="placeholders">{{payTypeDesc == ''?'请选择结算方式':payTypeDesc}}</view>
+          <image class="right-arrow" src="../../assets/images/right@2x.png"></image>
+        </view>
+      </view>
+      <view class="item timers" wx:if="{{timeList.length>0}}">
+          <view class="item-left">
+            <text class="star">*</text>预计送达时间
+          </view>
+          <view class="item-right">
+            <view class="placeholders">实际送达时间请以运输时效为准</view>
+          </view>
+      </view>
+      <view class="time-box" wx:if="{{timeList.length>0}}">
+          <view class="timer {{payTypeSelectIndex==index?'active':''}}" wx:key="index" wx:for="{{timeList}}" data-index="{{index}}" bindtap="selectItem">
+            <view class="title">{{item.productName}}</view>
+            <view class="price">¥ {{item.estimatedPrice}}</view>
+            <view class="tip">预计</view>
+            <view class="time">{{item.desc}}</view>
+          </view>
+      </view>
+    </view>
+    <view class="service">
+      <view class="item"  data-page="insured" bindtap="goPage">
+        <view class="item-left">保价服务</view>
+        <view class="item-right">
+          <view class="placeholders">{{bjfwDesc}}</view>
+        </view>
+      </view>
+      <view class="item"  data-page="valueAdded" bindtap="goPage">
+        <view class="item-left">增值服务</view>
+        <view class="item-right">
+          <view class="placeholders" wx:if="{{(params.offlineSignRemark =='' || params.offlineSignRemark==null) && (addedValuedDesc == ''||addedValuedDesc == null)}}">选择增值服务</view>
+          <view class="goods-info" wx:else>
+            <view class="placeholders goods-name" wx:if="{{params.offlineSignRemark}}">{{params.offlineSignRemark}}</view>
+            <view class="placeholders goods-details">{{addedValuedDesc}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view style="height:146rpx">
+  </view>
+  <view class="order_footer">
+     <view class="footer-left">
+        <view class="price">预估运费：<text class="amount">¥ {{params.sumPrice !=''?params.sumPrice:'--'}}</text><view bindtap="onShowSpenddetail" class="detail">明细</view></view>
+        <view class="terms-box" catchtap="onSelectTerms">
+          <view class="select">
+            <image class="img" src="{{onSelectTerms?'../../assets/images/seclect@2x.png':'../../assets/images/select_3@2x.png'}}"></image>
+          </view>
+          已阅读并同意<view class="terms" data-page="charter" catchtap="goPage">《电子契约条款》</view>
+        </view>
+     </view>
+     <view class="btn active" data-page="success" bindtap="goPage">下单</view>
+  </view>
+  <timer wx:if="{{showPicker}}"  expectCollectTime="{{params.expectCollectTime}}"  siteCode="{{params.consignorStreet}}"  bindsavetimer="savetimer" bindcancleTimer="cancleTimer"></timer>
+  <payType wx:if="{{showPayType}}" settlementType="{{params.settlementType}}" bindclosePaytype="closePaytype" bindgetPayType="getPayType"></payType>
+  <spendDetail wx:if="{{showSpendDetail}}" spendDetail="{{spendDetail}}" bindclosespenddetail="closespenddetail"></spendDetail>
+  
+  <view class="toast" wx:if="{{notifyToast}}">
+    抱歉！始发站点与末端站点分拣中心不一致，无法完成下单操作，请联系相应业务人员或致电：400-128-800
+  </view>
+</view>
+<wxs src="../../utils/check.wxs" module="tools" />

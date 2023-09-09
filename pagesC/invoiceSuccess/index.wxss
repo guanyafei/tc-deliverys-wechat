@@ -1,0 +1,33 @@
+/**index.wxss**/
+.invoice-success{
+  min-height: 100vh;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.invoice-success .logo{
+  margin: 240rpx auto 70rpx;
+  width: 192rpx;
+  height: 168rpx;
+}
+.invoice-success .tip{
+  font-size: 36rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #2F2F2F;
+  margin-bottom: 140rpx;
+  text-align: center;
+}
+.invoice-success .btn{
+  width: 638rpx;
+  height: 96rpx;
+  line-height: 96rpx;
+  background: #3260EB;
+  border-radius: 54rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+}

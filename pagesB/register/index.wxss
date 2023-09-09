@@ -1,0 +1,227 @@
+/**index.wxss**/
+.register{
+  min-height: 100vh;
+  background: #FFFFFF;
+  padding: 208rpx 54rpx 68rpx;
+  box-sizing: border-box;
+}
+.register .tip{
+  font-size: 48rpx;
+  font-family: PingFangHK-Medium, PingFangHK;
+  font-weight: 500;
+  color: #466FED;
+}
+.register .step-wrap{
+  margin: 68rpx 20rpx 0;
+}
+.register .step-wrap .step-top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.register .step-wrap .step-top .circle{
+  width: 40rpx;
+  height: 40rpx;
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  font-family: Helvetica;
+  border-radius: 50%;
+  color: #FFFFFF;
+  background: #DDDDDD;
+  position: relative;
+}
+.register .step-wrap .step-top .line{
+  flex: 1;
+  height: 4rpx;
+  background: #EEEEEE;
+  position: relative;
+}
+.register .step-wrap .step-top .circle .sub{
+  width: 80rpx;
+  position: absolute;
+  top: 44rpx;
+  margin-left: -40rpx;
+  left: 50%;
+  font-size: 20rpx;
+  font-family: PingFangHK-Regular, PingFangHK;
+  font-weight: 400;
+  color: #AAAAAA;
+}
+.register .step-wrap .step-top .active{
+  background: #466FED;
+}
+.register .step-wrap .step-top .active .sub{
+  color: #466FED;
+}
+.register .step-wrap .step-top .inside-line-b {
+  height: 4rpx;
+  width: 50%;
+  background: #466FED;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.register .step-wrap .step-top .inside-line-q {
+  height: 4rpx;
+  width: 100%;
+  background: #466FED;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.register .step-bottom{
+  margin-top: 88rpx;
+}
+.register .step-bottom .account,.register .step-bottom .password{
+  width: 100%;
+  height: 96rpx;
+  padding: 0 60rpx;
+  box-sizing: border-box;
+  background: #F7F8FA;
+  border-radius: 54rpx;
+  margin-bottom: 36rpx;
+  font-size: 28rpx;
+  font-family: Helvetica;
+  color: #222222;
+}
+.register .step-bottom .account{
+  padding-left: 160rpx;
+  padding-top: 3rpx;
+}
+.register .step-bottom .account-box{
+  position: relative;
+}
+.register .step-bottom .account-box .error{
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #E50808;
+  position: absolute;
+  bottom: -32rpx;
+  left: 0;
+  display: none;
+}
+.register .step-bottom .active .account,.register .step-bottom .active .password{
+  border: 2rpx solid #E50808;
+  box-sizing: border-box;
+}
+.register .step-bottom .active .error{
+  display: block;
+}
+.register .step-bottom .account-box .zone{
+  position: absolute;
+  top: 50%;
+  left: 50rpx;
+  transform: translateY(-50%);
+}
+.register .step-bottom .account-box .zone .r-arrow{
+  width: 12rpx;
+  height: 22rpx;
+  margin-left: 16rpx;
+}
+.register .step-bottom .account-box .code-btn{
+ position: absolute;
+ top: 50%;
+ right: 54rpx;
+ z-index: 2;
+ transform: translateY(-50%);
+ font-size: 24rpx;
+ font-family: PingFangHK-Medium, PingFangHK;
+ font-weight: 500;
+ color: #466FED;
+}
+.register .step-bottom .terms{
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  font-family: Helvetica;
+  color: #999999;
+  margin: 36rpx 0 30rpx 20rpx;
+}
+.register .step-bottom .terms .circle{
+  width: 22rpx;
+  height: 22rpx;
+  border: 2rpx solid #999999;
+  border-radius: 50%;
+  box-sizing: border-box;
+  margin-right: 10rpx;
+}
+.register .step-bottom .terms .circle-img{
+  width: 22rpx;
+  height: 22rpx;
+  margin-right: 10rpx;
+}
+.register .step-bottom .terms .prvacy{
+  font-size: 24rpx;
+  font-family: Helvetica;
+  color: rgba(62, 106, 237, 1)
+}
+.register .step-bottom .btn{
+  width: 100%;
+  height: 96rpx;
+  background: #C0D6FF;
+  border-radius: 54rpx;
+  text-align: center;
+  line-height: 96rpx;
+  font-size: 32rpx;
+  font-family: PingFangHK-Medium, PingFangHK;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+.register .step-bottom .info-btn .active{
+  background: rgba(50, 96, 235, 1);
+}
+.register .step-bottom .info-btn .info-tip{
+  margin: 36rpx auto 0;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #777777;
+  text-align: center;
+}
+.register .step-bottom .info-btn .info-tip .login{
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(62, 106, 237, 1);
+}
+.register .step-bottom .accg{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.register .step-bottom .accg .btn{
+  margin: 56rpx auto 0;
+  background-color: rgba(50, 96, 235, 1);
+}
+.register .step-bottom .accg .terms{
+  align-self: flex-start;
+  margin-top: 36rpx;
+}
+.register .step-bottom .account-wrap .zc-success{
+  width: 406rpx;
+  height: 222rpx;
+  margin-top: 210rpx 0 30rpx;
+}
+.register .step-bottom .account-wrap .success-tip{
+  font-size: 32rpx;
+  font-family: PingFangHK-Medium, PingFangHK;
+  font-weight: 500;
+  color: #222222;
+  margin-bottom: 36rpx;
+}
+.register .step-bottom .account-wrap .company{
+  font-size: 24rpx;
+  font-family: PingFangHK-Regular, PingFangHK;
+  font-weight: 400;
+  color: #999999;
+  margin-bottom: 36rpx;
+}
+.register .step-bottom .account-wrap .tip2{
+  font-size: 24rpx;
+  font-family: PingFangHK-Regular, PingFangHK;
+  font-weight: 400;
+  color: #999999;
+  line-height: 34rpx;
+}

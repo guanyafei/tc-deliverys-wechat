@@ -1,0 +1,16 @@
+/**index.wxss**/
+.privacy{
+  min-height: 100vh;
+  background: #FFFFFF;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #363636;
+  line-height: 40rpx;
+  word-break: break-all;
+}
+.privacy .item{
+  margin: 10rpx 0;
+}

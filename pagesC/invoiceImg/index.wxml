@@ -1,0 +1,5 @@
+<!--index.wxml-->
+<view class="invoice-img">
+  <image class="page-img" src="{{invoiceImg}}"></image>
+  <view class="tel">客服热线 400-128-8000</view>
+</view>

@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<view class="home">
+  <view class="banner">
+    <swiper indicator-dots="{{indicatorDots}}">
+        <block wx:for="{{banner}}" wx:key="*this">
+          <swiper-item>
+            <image class="banner" src="{{item}}"></image> 
+          </swiper-item>
+        </block>
+      </swiper>
+  </view>
+  <view class="box">
+     <view class="item" data-page="order"  bindtap="goPage">
+        <image class="logo" src="../../assets/images/logo1@2x.png"></image>
+        <text class="nav">在线下单</text>
+     </view>
+     <view class="item" data-page="goodsDesc"  bindtap="goPage">
+      <image class="logo" src="../../assets/images/logo6@2x.png"></image>
+        <text class="nav">产品介绍</text>
+     </view> 
+     <view class="item"  data-page="service" bindtap="goPage">
+      <image class="logo" src="../../assets/images/logo2@2x.png"></image>
+        <text class="nav">增值服务</text>
+     </view>
+     <view class="item"  data-page="aging" bindtap="goPage">
+      <image class="logo" src="../../assets/images/logo4@2x.png"></image>
+        <text class="nav">运费时效</text>
+     </view>
+     <view class="item" data-page="serviceArea" bindtap="goPage">
+      <image class="logo" src="../../assets/images/logo3@2x.png"></image>
+        <text class="nav">服务范围</text>
+      </view>
+     <view class="item" data-page="contraband" bindtap="goPage">
+      <image class="logo" src="../../assets/images/logo5@2x.png"></image>
+        <text class="nav">违禁物品</text>
+     </view>
+  </view>
+</view>

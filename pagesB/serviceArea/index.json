@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "服务范围查询",
+  "usingComponents": {
+    "address":"/components/address/index"
+  }
+}

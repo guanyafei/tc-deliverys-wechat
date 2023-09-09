@@ -1,0 +1,101 @@
+<!--index.wxml-->
+<view class="register">
+  <view class="tip">注册账号</view>
+  <view class="step-wrap">
+    <view class="step-top">
+        <view class="circle active">1
+          <view class="sub">账号信息</view>
+        </view>
+        <view class="line active"></view>
+        <view class="circle {{showIndex=='2' || showIndex=='3'?'active':''}}">2
+          <view class="sub">企业信息</view>
+        </view>
+        <view class="line">
+          <view class="{{showIndex=='2'?'inside-line-b':showIndex=='3'?'inside-line-q':''}}"></view>
+        </view>
+        <view class="circle {{showIndex=='3'?'active':''}}">3
+          <view class="sub">注册成功</view>
+        </view>
+      </view>
+  </view>
+  <view class="step-bottom">
+    <!-- 账号信息 -->
+    <view class="account-wrap" wx:if="{{showIndex=='1'}}">
+      <view class="account-box {{tools.checkIsHasKey(errIndexList,'1')?'active':''}}">
+        <view class="zone">
+          +86<image class="r-arrow" src="../../assets/images/r-arrow@2x.png"></image>
+        </view>
+        <input class="account" maxlength="11" type="number" model:value="{{registerObj.phone}}"  data-index="1" bindinput="getCheck"  placeholder="输入手机号" placeholder-style="color: #DFDFDF;font-size: 28rpx;font-weight: 500;"/>
+        <view class="error">手机号码格式有误, 请检查是否正确?！</view>
+      </view> 
+      <view class="account-box  {{tools.checkIsHasKey(errIndexList,'2')?'active':''}}">
+        <input class="password" maxlength="6" type="number" data-index="2" bindinput="getCheck" model:value="{{registerObj.phoneveri}}" placeholder="输入验证码" placeholder-style="color: #DFDFDF;font-size: 28rpx;font-weight: 500;"/>
+        <view class="code-btn" wx:if="{{resend}}" bindtap="countdown">{{tipDesc}}</view>
+        <view class="code-btn" wx:else>{{counter}}秒后重新获取</view>
+        <view class="error">{{errMsg}}</view>
+      </view>
+      <view class="account-box {{tools.checkIsHasKey(errIndexList,'3')?'active':''}}">
+        <input class="password" maxlength="20" type="text" model:value="{{registerObj.userName}}" data-index="3" bindinput="getCheck" placeholder="设置企业用户名" placeholder-style="color: #DFDFDF;font-size: 28rpx;font-weight: 500;"/>
+        <view class="error">企业账号格式有误, 请检查后重新填写！</view>
+      </view>
+      <view class="account-box {{tools.checkIsHasKey(errIndexList,'4')?'active':''}}">
+        <input class="password" type="password"  maxlength="20" model:value="{{registerObj.password}}" data-index="4" bindinput="getCheck" placeholder="设置用户名密码" placeholder-style="color: #DFDFDF;font-size: 28rpx;font-weight: 500;"/>
+        <view class="error">密码格式有误,请重新输入！</view>
+      </view>
+      <view class="account-box {{tools.checkIsHasKey(errIndexList,'5')?'active':''}}">
+        <input class="password" type="password" maxlength="20" model:value="{{surePassword}}" data-index="5" bindinput="getCheck" placeholder="再次确认密码" placeholder-style="color: #DFDFDF;font-size: 28rpx;font-weight: 500;"/>
+        <view class="error">两次密码输入不一致！</view>
+      </view>
+    </view>
+    <!-- 企业信息 -->
+    <view class="account-wrap" wx:if="{{showIndex=='2'}}">
+      <view class="account-box {{tools.checkIsHasKey(errIndexList,'6')?'active':''}}">
+        <input class="password" type="text" maxlength="100" data-index="6" bindinput="getCheck" model:value="{{registerObj.companyName}}" placeholder="企业全称" placeholder-style="color: #DFDFDF;font-size: 28rpx;font-weight: 500;"/>
+        <view class="error">不允许包含特殊字符及空格!</view>
+      </view> 
+      <view class="account-box {{tools.checkIsHasKey(errIndexList,'7')?'active':''}}">
+        <input class="password" type="text"  maxlength="20" data-index="7" model:value="{{registerObj.taxpayerId}}" bindinput="getCheck" placeholder="纳税人识别号" placeholder-style="color: #DFDFDF;font-size: 28rpx;font-weight: 500;"/>
+        <view class="error">纳税人识别号格式有误,请重新填写！</view>
+      </view>
+      <view class="account-box {{tools.checkIsHasKey(errIndexList,'8')?'active':''}}">
+        <input class="password" maxlength="300" data-index="8" bindinput="getCheck" type="text" model:value="{{registerObj.companyRegisteredAddress}}" placeholder="企业注册地址" placeholder-style="color: #DFDFDF;font-size: 28rpx;font-weight: 500;"/>
+        <view class="error">不允许包含特殊符号及空格！</view>
+      </view>
+      <view class="account-box {{tools.checkIsHasKey(errIndexList,'9')?'active':''}}">
+        <input class="password" type="text" maxlength="100" data-index="9" bindinput="getCheck" model:value="{{registerObj.contacts}}" placeholder="企业联系人姓名" placeholder-style="color: #DFDFDF;font-size: 28rpx;font-weight: 500;"/>
+        <view class="error">不允许包含特殊字符及空格！</view>
+      </view>
+      <view class="account-box {{tools.checkIsHasKey(errIndexList,'10')?'active':''}}">
+        <input class="password" type="number" disabled="true" maxlength="11" model:value="{{registerObj.contactsPhone}}" data-index="10" bindinput="getCheck"  placeholder="联系人手机号" placeholder-style="color: #DFDFDF;font-size: 28rpx;font-weight: 500;"/>
+        <view class="error">手机号码格式有误, 请检查是否正确？</view>
+      </view>
+    </view>
+    <!-- 注册成功 -->
+    <view class="account-wrap accg" wx:if="{{showIndex=='3'}}">
+      <image class="zc-success" src="../../assets/images/zc-success@2x.png"></image>
+      <view class="success-tip">恭喜您企业账户注册成功！</view>
+      <view class="company">{{registerObj.companyName}}</view>
+      <view class="tip2">若您已经成为我司企业签约客户,下单即可享受已签约折扣。若系统未检测到您的签约信息,下单则以官方标准计费。</view>
+      <view class="btn" data-page="login" bindtap="goPage">登录</view>
+      <view class="terms" catchtap="hasRead">
+       <view class="circle" wx:if="{{!read}}"></view>
+       <image wx:else class="circle-img" src="../../assets/images/seclect@2x.png"></image>
+       我已阅读安迅快递<view class="prvacy" data-page="privacy" catchtap="goPage">《隐私政策》</view>
+       <!-- 和<view class="prvacy" data-page="terms" catchtap="goPage">《服务条款》</view> -->
+      </view>
+    </view>
+    <!-- 按钮 --> 
+    <view class="info-btn" wx:if="{{showIndex!=3}}">
+      <view class="terms" catchtap="hasRead">
+       <view class="circle" wx:if="{{!read}}"></view>
+       <image wx:else class="circle-img" src="../../assets/images/seclect@2x.png"></image>
+       我已阅读安迅快递<view class="prvacy" data-page="privacy" catchtap="goPage">《隐私政策》</view>
+       <!-- 和<view class="prvacy" data-page="terms" catchtap="goPage">《服务条款》</view> -->
+      </view>
+      <view class="btn active" wx:if="{{showIndex == 1}}" bindtap="goNext">下一步</view>
+      <view class="btn active" wx:if="{{showIndex == 2}}" bindtap="goNext">注册</view>
+      <view class="info-tip" data-page="login" bindtap="goPage">已有账号？去<text class="login">登录</text></view>
+    </view>
+  </view>
+</view>
+<wxs src="../../utils/check.wxs" module="tools" />
