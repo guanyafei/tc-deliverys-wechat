@@ -1,5 +1,4 @@
 /**index.wxss**/
-@import "/wxParse/wxParse.wxss";
 .contraband{
   background: #FFFFFF;
   padding: 0 30rpx;

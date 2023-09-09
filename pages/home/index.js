@@ -1,11 +1,20 @@
 let {getUserInfo} = require('../../http/index.js');
 Page({
   data: {
-    indicatorDots: true,
+    indicatorDots: false,
     banner:[
-      '../../assets/images/banner1.jpg',
-      '../../assets/images/banner2.jpg'
-    ]
+      '../../assets/imgs/banner1@2x.png'
+    ],
+    hornIcon: '../../assets/imgs/lb@2x.png',
+    noticeList: [
+        {
+            tip: '欢迎使用！',
+        },
+        {
+            tip: '欢迎使用！',
+        }
+    ],
+    orderIcon: '../../assets/imgs/xd@2x.png'
   },
   onLoad(e) {
   },

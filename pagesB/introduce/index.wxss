@@ -1,5 +1,4 @@
 /**index.wxss**/
-@import "/wxParse/wxParse.wxss";
 .introduce{
   min-height: 100vh;
   background: #FFFFFF;

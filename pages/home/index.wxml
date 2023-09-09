@@ -1,14 +1,35 @@
 <!--index.wxml-->
 <view class="home">
   <view class="banner">
-    <swiper indicator-dots="{{indicatorDots}}">
+    <swiper class="swiper_box" indicator-dots="{{indicatorDots}}">
         <block wx:for="{{banner}}" wx:key="*this">
-          <swiper-item>
-            <image class="banner" src="{{item}}"></image> 
-          </swiper-item>
+            <swiper-item>
+                <image class="banner" src="{{item}}"></image> 
+            </swiper-item>
         </block>
-      </swiper>
+    </swiper>
   </view>
+  <view class="notice">
+    <image class="horn" src="{{hornIcon}}"></image> 
+    <view class="notice_list">
+        <swiper class="swiper_box" autoplay="true" 	vertical="true">
+            <swiper-item wx:for="{{noticeList}}" wx:key="*this">
+               <view class="tip">{{item.tip}}</view>
+            </swiper-item>
+        </swiper>
+    </view>
+  </view>
+  <view class="order">
+     <view class="order_left">
+        <image class="order_img" src="{{orderIcon}}"></image> 
+        <view class="order_tip">在线下单</view>
+     </view>
+     <view class="order_right">
+       <view class="order_top"></view>
+       <view class="order_bottom"> </view>
+     </view>
+  </view>
+
   <view class="box">
      <view class="item" data-page="order"  bindtap="goPage">
         <image class="logo" src="../../assets/images/logo1@2x.png"></image>
