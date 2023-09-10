@@ -14,7 +14,10 @@ Page({
             tip: '欢迎使用！',
         }
     ],
-    orderIcon: '../../assets/imgs/xd@2x.png'
+    orderIcon: '../../assets/imgs/xd@2x.png',
+    bcjIcon: '../../assets/imgs/bcj@2x.png',
+    jgcxIcon: '../../assets/imgs/jgcx@2x.png',
+    cjwtIcon: '../../assets/imgs/cjwt@2x.png',
   },
   onLoad(e) {
   },

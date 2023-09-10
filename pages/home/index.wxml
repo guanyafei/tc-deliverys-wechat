@@ -25,35 +25,38 @@
         <view class="order_tip">在线下单</view>
      </view>
      <view class="order_right">
-       <view class="order_top"></view>
-       <view class="order_bottom"> </view>
+       <view class="order_top">
+         <image class="right_img" src="{{bcjIcon}}"></image>
+         <view class="right_title">补差价</view>
+       </view>
+       <view class="order_bottom"> 
+         <image class="right_img" src="{{jgcxIcon}}"></image>
+         <view class="right_title">价格查询</view>
+       </view>
      </view>
   </view>
-
-  <view class="box">
-     <view class="item" data-page="order"  bindtap="goPage">
-        <image class="logo" src="../../assets/images/logo1@2x.png"></image>
-        <text class="nav">在线下单</text>
-     </view>
-     <view class="item" data-page="goodsDesc"  bindtap="goPage">
-      <image class="logo" src="../../assets/images/logo6@2x.png"></image>
-        <text class="nav">产品介绍</text>
-     </view> 
-     <view class="item"  data-page="service" bindtap="goPage">
-      <image class="logo" src="../../assets/images/logo2@2x.png"></image>
-        <text class="nav">增值服务</text>
-     </view>
-     <view class="item"  data-page="aging" bindtap="goPage">
-      <image class="logo" src="../../assets/images/logo4@2x.png"></image>
-        <text class="nav">运费时效</text>
-     </view>
-     <view class="item" data-page="serviceArea" bindtap="goPage">
-      <image class="logo" src="../../assets/images/logo3@2x.png"></image>
-        <text class="nav">服务范围</text>
+  <view class="issue">
+    <view class="issue_top">
+      <image class="issue_img" src="{{cjwtIcon}}"></image>
+      <view class="issue_desc">
+        <view class="issue_title">
+            常见问题
+        </view>
+        <view class="issue_subtitle">
+            123
+        </view>
       </view>
-     <view class="item" data-page="contraband" bindtap="goPage">
-      <image class="logo" src="../../assets/images/logo5@2x.png"></image>
-        <text class="nav">违禁物品</text>
-     </view>
+    </view>
+    <view class="issue_bottom">
+      <image class="issue_img" src="{{cjwtIcon}}"></image>
+      <view class="issue_desc">
+        <view class="issue_title">
+            操作说明
+        </view>
+        <view class="issue_subtitle">
+            456
+        </view>
+      </view>
+    </view>
   </view>
 </view>

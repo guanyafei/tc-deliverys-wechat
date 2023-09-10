@@ -11,7 +11,8 @@
     "pages/paySuccess/index",
     "pages/pay/index",
     "pages/codePay/index",
-    "pages/itemType/index"
+    "pages/itemType/index",
+    "pages/addressBook/index"
   ],
   "subPackages": [
     {
@@ -68,21 +69,21 @@
     "list": [
       {
         "pagePath": "pages/home/index",
-        "text": "寄件",
-        "iconPath": "assets/images/jj-wei@2x.png",
-        "selectedIconPath": "assets/images/jj-xuan@2x.png"
+        "text": "首页",
+        "iconPath": "assets/imgs/home@2x.png",
+        "selectedIconPath": "assets/imgs/home_selected@2x.png"
       },
       {
         "pagePath": "pages/query/index",
-        "text": "运单追踪",
-        "iconPath": "assets/images/cx-wei@2x.png",
-        "selectedIconPath": "assets/images/cx-xuan@2x.png"
+        "text": "快递查询",
+        "iconPath": "assets/imgs/query@2x.png",
+        "selectedIconPath": "assets/imgs/query__selected@2x.png"
       },
       {
         "pagePath": "pages/my/index",
-        "text": "我的",
-        "iconPath": "assets/images/my-wei@2x.png",
-        "selectedIconPath": "assets/images/my-xuan@2x.png"
+        "text": "个人中心",
+        "iconPath": "assets/imgs/my@2x.png",
+        "selectedIconPath": "assets/imgs/my__selected@2x.png"
       }
     ]
   },

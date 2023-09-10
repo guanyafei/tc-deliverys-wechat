@@ -1,0 +1,7 @@
+<view class="address-book">
+    <view class="type">
+       <view class="item  {{index==1?'selected':''}}" data-index="1" catchtap="selected">寄件地址</view>
+       <view class="item  {{index==2?'selected':''}}" data-index="2" catchtap="selected">收件地址</view>
+    </view>
+    <view class="add" data-page="addUserManagement" bindtap="goPage">新增</view>
+</view>

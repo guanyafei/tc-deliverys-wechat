@@ -5,7 +5,6 @@ Component({
    */
   data: {
     copyToast: false,
-    notifyToast: false,
     selectIndex: -1,
     notifyIdList: [],
     tempList:[]
@@ -90,36 +89,6 @@ Component({
         },
         fail: (res) => {
           console.log("setClipboardData", res)
-        }
-      })
-    },
-    // 催收
-    notify(e) {
-      wx.showModal({
-        title: '系统提示',
-        content: '是否向揽收员发送催揽消息？',
-        confirmText: '确定',
-        confirmColor: '#466FED',
-        cancelColor: '#2F2F2F',
-        success: (res) => {
-          if (res.confirm) {
-            let id = e.currentTarget.dataset.id;
-            getToCollect([id]).then(res=>{
-              if(res.code == 200){
-                this.setData({
-                  notifyToast: true
-                });
-                let timer = setTimeout(() => {
-                  clearTimeout(timer);
-                  this.setData({
-                    notifyToast: false
-                  });
-                }, 3000);
-              }
-            });
-          } else if (res.cancel) {
-            console.log('用户点击取消')
-          }
         }
       })
     },

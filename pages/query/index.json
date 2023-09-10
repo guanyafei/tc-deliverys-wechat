@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "运单追踪",
+  "navigationBarTitleText": "快递查询",
   "usingComponents": {
     "item":"/components/item/index"
   }

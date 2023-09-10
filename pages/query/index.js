@@ -2,67 +2,14 @@ let {getWaybillList,getQueryCount,getCancelOrder,getToCollect} = require('../../
 let {formatFilterTime,checkIsNull } = require('../../utils/util');
 Page({
   data: {
-    index:1,
-    dropIndex:0,
+    total:0,
+    loadMore:true,
+    sendTotal:10,
+    acceptTotal:3,
+    payTotal:0,
+    index:1, 
     timer:null,
-    sendStatus:[{
-      key:'全部',
-      value:''
-    },{
-      key:'待揽收',
-      value:'3'
-    },{
-      key:'已揽收',
-      value:'5'
-    },{
-      key:'运输中',
-      value:'6'
-    },{ 
-      key:'已签收',
-      value:'9'
-    },{
-      key:'拦截单',
-      value:'YC' 
-    },{
-      key:'拒签',
-      value:'8'
-    }],
-    sendIndex:0,
-    acceptStatus:[{
-      key:'全部',
-      value:''
-    },{
-      key:'回单',
-      value:'HD'
-    },{
-      key:'拒签返回',
-      value:'8'
-    },{
-      key:'运输中',
-      value:'6'
-    },{
-      key:'已签收',
-      value:'9'
-    },{
-      key:'拒签',
-      value:'8'
-    }],
-    acceptIndex:0,
-    payStatus:[{
-      key:'全部',
-      value:'all'
-    },{
-      key:'未支付',
-      value:'1'
-    },{
-      key:'支付失败',
-      value:'3'
-    }],
-    payIndex:0,
-    notifyToast:false,
     list:[],
-    notifyFlag:false, //揽收按钮
-    notifyIdList:[],
     params:{
       pageNum:1,
       pageSize:20,
@@ -76,13 +23,6 @@ Page({
       queryEndTime:'',
       transferNo:''
     },
-    total:0,
-    loadMore:true,
-    sendTotal:0,
-    acceptTotal:0,
-    payTotal:0,
-    filterStatus:'',
-    detailRetFlag:false
   },
   onLoad() {
   },
@@ -108,7 +48,6 @@ Page({
       });
       return;
     }
-    if(this.data.detailRetFlag)return
     let userInfo = wx.getStorageSync('userInfo');
     let consignorCustomerAccount = 'params.consignorCustomerAccount';
     this.setData({
@@ -118,7 +57,6 @@ Page({
     getQueryCount({
       consigneeCustomerAccount: userInfo.userName,
       consignorCustomerAccount: userInfo.userName,
-      // consigneeContactPhone:userInfo.phonenumber,
       paymentStatus: 'all',
       status: '',
       queryBeginTime: formatFilterTime(12), 
@@ -201,15 +139,35 @@ Page({
     this.setData({
       [queryBeginTime]: formatFilterTime(12),
       [queryEndTime]: formatFilterTime(0),
-      detailRetFlag:true
     });
     
     if (!this.data.loadMore) return;
+    this.setData({
+        list: [
+            {
+                status: 1,
+                orderNo: 2,
+                waybillNo: 3,
+                serviceProduct: 4,
+                consignor: '张三',
+                consignee: '李四',
+                sumPrice: '100',
+            },
+            {
+                status: 1,
+                orderNo: 2,
+                waybillNo: 3,
+                serviceProduct: 4,
+                consignor: '张三',
+                consignee: '李四',
+                sumPrice: '100',
+            }
+        ],
+    });
     getWaybillList(this.data.params).then(res => {
       if (res.code == 200) {
         let list = []; 
-        if(this.data.index == 2 && this.data.acceptIndex == 2){
-          let arr = this.onSetFilter(res.rows);
+        if(this.data.index == 2){
           list = this.data.list.concat(arr);
         }else{
           list = this.data.list.concat(res.rows);
@@ -225,15 +183,9 @@ Page({
             sendTotal:res.total || 0
           });
         }else if(this.data.index == 2){
-          if(this.data.acceptIndex == 2){
             this.setData({
-              acceptTotal:this.data.list.length
+                acceptTotal:res.total || 0
             });
-          }else{
-            this.setData({
-              acceptTotal:res.total || 0
-            });
-          }
         }else if(this.data.index == 3){
           this.setData({
             payTotal:res.total || 0
@@ -241,16 +193,6 @@ Page({
         }
       }
     });
-  },
-  // 拒签返还筛选
-  onSetFilter(list){
-    let arr = [];
-    for(let i=0;i<list.length;i++){
-      if(list[i].orderType == '2'){
-        arr.push(list[i]);
-      }
-    }
-    return arr;
   },
   // 扫描
   onScanCode(e) {
@@ -261,21 +203,6 @@ Page({
         let result = res.result;
       }
     })
-  },
-  // 是否展示催收按钮
-  onIsShowNotify(e) {
-    let list = e.detail.params;
-    if (list.length > 1) {
-      this.setData({
-        notifyFlag: true,
-        notifyIdList: list
-      })
-    } else {
-      this.setData({
-        notifyFlag: false,
-        notifyIdList: []
-      })
-    }
   },
   // 状态筛选
   selected(e) {
@@ -317,21 +244,11 @@ Page({
     }
     this.setData({
       index: index,
-      dropIndex: 0,
       total: 0,
       loadMore: true,
       list: [],
-      sendIndex: 0,
-      acceptIndex: 0,
-      payIndex: 0,
       [pageNum]: 1,
       [pageSize]: 20,
-      sendIndex: 0,
-      acceptIndex: 0,
-      payIndex: 0,
-      filterStatus:'',
-      notifyFlag:false,
-      notifyIdList: []
     });
     if(!checkIsNull(this.data.params.transferNo)){
       this.setData({
@@ -339,136 +256,6 @@ Page({
       });
     }
     this.getList();
-  },
-  // 详情页点击回单号返回运单追踪页
-  onDetailToQuery(){
-    let params = {
-      currentTarget:{
-        dataset:{
-          index:2
-        }
-      }
-    }
-    this.setData({
-      detailRetFlag:true
-    })
-    this.selected(params);
-  },
-  // 下拉展示
-  dropDown(e) {
-    let index = e.currentTarget.dataset.index;
-    if(this.data.dropIndex==index){
-      this.setData({
-        dropIndex: -1,
-        index: index
-      });
-    }else{
-      this.setData({
-        dropIndex: index,
-        index: index
-      });
-    }
-    this.setData({
-      notifyFlag:false,
-      notifyIdList: []
-    })
-  },
-  // 下拉状态筛选
-  selectStatus(e) {
-    let index = e.currentTarget.dataset.index;
-    let mod = e.currentTarget.dataset.mod;
-    let value = e.currentTarget.dataset.value;
-    let userInfo = wx.getStorageSync('userInfo');
-    let consignorCustomerAccount = 'params.consignorCustomerAccount';
-    let consigneeCustomerAccount = 'params.consigneeCustomerAccount';
-    let consigneeContactPhone = 'params.consigneeContactPhone';
-    let zfStatus = "params.zfStatus";
-    let status = "params.status";
-    let pageNum = 'params.pageNum';
-    let pageSize = 'params.pageSize';
-    if (mod == 'send') {
-      let status = 'params.status';
-      this.setData({
-        sendIndex: index,
-        acceptIndex: 0,
-        payIndex: 0,
-        [status]: value,
-        [zfStatus]: '',
-        [consignorCustomerAccount]: userInfo.userName,
-        [consigneeCustomerAccount]: '', 
-        [consigneeContactPhone]:'',
-      })
-    } else if (mod == 'accept') {
-      let status = 'params.status';
-      this.setData({
-        sendIndex: 0,
-        acceptIndex: index,
-        payIndex: 0,
-        [status]: value,
-        [zfStatus]: '',
-        [consignorCustomerAccount]: '',
-        [consigneeCustomerAccount]: userInfo.userName,
-        [consigneeContactPhone]:userInfo.phonenumber,
-      })
-    } else if (mod == 'pay') {
-      let zfStatus = 'params.zfStatus';
-      this.setData({
-        sendIndex: 0,
-        acceptIndex: 0,
-        payIndex: index,
-        [status]: '',
-        [zfStatus]: value,
-        [consignorCustomerAccount]: userInfo.userName,
-        [consigneeCustomerAccount]: userInfo.userName,
-        [consigneeContactPhone]:'',
-      })
-    };
-    this.setData({
-      dropIndex:0,
-      total:0,
-      loadMore:true,
-      list:[],
-      [pageNum]:1,
-      [pageSize]:20,
-      filterStatus:value,
-      notifyFlag:false,
-      notifyIdList: []
-    });
-    if(!checkIsNull(this.data.params.transferNo)){
-      this.setData({
-        [consigneeContactPhone]:''
-      });
-    }
-    this.getList();
-  },
-  // 催收
-  notify() {
-    wx.showModal({
-      title: '系统提示',
-      content: '是否向揽收员发送催揽消息？',
-      confirmText: '确定',
-      confirmColor: '#466FED',
-      cancelColor: '#2F2F2F',
-      success: (res) => {
-        if (res.confirm) {
-          getToCollect(this.data.notifyIdList).then(res=>{
-            if(res.code == 200){ 
-              this.setData({
-                notifyToast: true
-              });
-              let timer = setTimeout(() => {
-                clearTimeout(timer);
-                this.setData({
-                  notifyToast: false
-                });
-              }, 3000);
-            }
-          });
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
-      }
-    })
   },
   onReachBottom() {
     this.getList()

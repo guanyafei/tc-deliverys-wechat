@@ -1,14 +1,14 @@
 /**index.wxss**/
 .query{
-  background:#F2F3F7;
+  background:rgb(245, 245, 245);
   min-height: 100vh;
 }
 .query .query-top {
-  padding: 0 26rpx;
-  background:#FFFFFF;
+  padding: 0 20rpx;
+  background:rgb(245, 245, 245);
 }
 .query .query-top .query-top-wrap{
-  background:#FFFFFF;
+  background:rgb(245, 245, 245);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -16,146 +16,76 @@
 .query .query-top .query-top-left{
   position: relative;
   flex: 1;
+  border: 2rpx solid rgb(213, 213, 213);
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  margin-top: 18rpx;
 }
 .query .query-top .search{
-  /* width: 620rpx; */
-  height: 70rpx;
+  height: 77rpx;
   background: #F7F7F7;
   border-radius: 40rpx;    
   font-size: 28rpx;
-  padding: 0 24rpx 0 76rpx;
+  padding: 0 24rpx 0 90rpx;
   box-sizing: border-box;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #2F2F2F
 }
 .query .query-top .search-img{
-  width: 26rpx;
-  height: 26rpx;
+  width: 38rpx;
+  height: 38rpx;
   position: absolute;
   top: 50%;
-  left: 26rpx;
-  margin-top: -13rpx;
+  left: 33rpx;
+  margin-top: -19rpx;
 }
-.query .query-top .query-top-right{
-  width: 42rpx;
-  height: 42rpx;
-}
-.query .query-top .select-wrap{
+.select-wrap{
   display: flex;
   justify-content: space-between;
+  background: rgb(255, 255, 255);
+  margin-top: 24rpx;
 }
-.query .query-top .select-wrap .select-item{
+.select-wrap .select-item{
   width: calc(100% / 3);
   padding: 26rpx 0;
   display: flex;
   align-items: center;
   flex-grow: 0;
   flex-shrink: 0;
+  padding-left: 48rpx;
+  box-sizing: border-box;
+  color: rgb(255, 79, 0);
+  font-size: 23rpx;
+  font-weight: 500;
 }
-.query .query-top .select-wrap .select-item .arrow{
-  position: relative;
-}
-.query .query-top .select-wrap .select-item .arrow image{
-  width: 22rpx;
-  height: 12rpx;
-  margin-top: -3rpx;
-  margin-left: 14rpx;
-  vertical-align: middle;
-}
-.query .query-top .select-wrap .select-item:nth-of-type(2){
-  margin: 0 23rpx;
-}
-.query .query-top .select-wrap .select-item text{
+.select-wrap .select-item text{
   font-size: 28rpx;
   font-family: PingFangSC-Medium, PingFang SC;
   font-weight: 500;
   color: rgba(47, 47, 47, 0.6);
+  margin-right: 10rpx;
+  position: relative;
 }
-.query .query-top .select-wrap .selected text{
-  color: #466FED; 
+.select-wrap .selected text::after{
+    content: '';
+    width: 80rpx;
+    height: 4rpx;
+    display: block;
+    background: rgb(38, 120, 255);
+    position: absolute;
+    bottom: -24rpx;
+    left: 50%;
+    margin-left: -40rpx;
+    box-sizing: border-box;
 }
-.query .query-top .select-wrap .select-item:nth-of-type(3){
-  width: 200rpx;
+.select-wrap .selected text{
+  color: rgb(38, 120, 255);
 }
-.query .query-top .select-wrap .select-item .drop-down{
-  width: 170rpx;
-  background: #FFFFFF;
-  box-shadow: 0px 0px 8rpx 2rpx rgba(196, 193, 193, 0.5);
-  position: absolute;
-  right: -13px;
-  top: 72rpx;
-  border-radius: 4rpx;
-  z-index: 5;
-}
-.query .query-top .select-wrap .select-item .arrow .top-arrow{
-  width: 44rpx;
-  height: 22rpx;
-  float: right;
-  margin-top: -22rpx;
-  margin-right: 16rpx;
-  
-}
-.query .query-top .select-wrap .select-item .drop-item{
-  width: 100%;
-  padding: 24rpx 0;
-  text-align: center;
-  font-size: 28rpx;
-  font-family: PingFangSC-Regular, PingFang SC;
-  font-weight: 400;
-  color: #252525;
-  border-bottom: 2rpx solid #E5E4E4;
-  box-sizing: border-box;
-}
-.query .query-top .select-wrap .select-item .drop-item:last-child{
-  border-bottom: none;
-}
-.query .query-top .select-wrap .select-item .active{
-  color: #466FED;
-}
+
 .query .list{
   background: #F2F3F7;
   width: 100%;
   box-sizing: border-box;
-  padding: 22rpx 16rpx 6rpx;
-}
-.query .urge{
-  width: 632rpx;
-  height: 96rpx;
-  background: #466FED;
-  box-shadow: 0 8rpx 8rpx 0 rgba(116, 116, 116, 0.5);
-  border-radius: 48rpx;
-  text-align: center;
-  line-height: 96rpx;
-  font-size: 32rpx;
-  font-family: PingFangSC-Medium, PingFang SC;
-  font-weight: 500;
-  color: #FFFFFF;
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 140rpx;
-}
-.query .toast{
-  font-size: 32rpx;
-  font-family: PingFangSC-Medium, PingFang SC;
-  font-weight: 500;
-  color: #FFFFFF;
-  padding: 22rpx 44rpx;
-  background: rgba(0, 0, 0, 0.7);
-  box-shadow: 0px -2rpx 8rpx 4rpx rgba(238, 236, 236, 0.5);
-  border-radius: 8rpx;
-  position: fixed;
-  top: 50%;
-  left:50%;
-  transform: translateX(-50%) translateY(-50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: fit-content;
-}
-.query .toast .imgs{
-  width: 36rpx;
-  height: 36rpx;
-  margin-right: 20rpx;
+  padding: 20rpx 20rpx 6rpx;
 }
