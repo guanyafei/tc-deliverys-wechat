@@ -46,3 +46,84 @@
     margin-left: -40rpx;
     box-sizing: border-box;
 }
+.list{
+    padding: 24rpx 20rpx;
+}
+.address_item{
+    width: 100%;
+    height: 182rpx;
+    box-sizing: border-box;
+    background: rgb(255, 253, 253);
+    border-radius: 10rpx;
+    display: flex;
+    flex-direction: column;
+}
+.a_top{
+    display: flex;
+    align-items: center;
+    height: 104rpx;
+    box-sizing: border-box;
+    border-bottom: 2rpx solid rgb(212, 210, 210);
+}
+.a_icon{
+    width: 31rpx;
+    height: 42rpx;
+    margin-left: 27rpx;
+}
+.info_box{
+    margin-left: 48rpx;
+    font-size: 27rpx;
+}
+.info{
+    margin-bottom: 6rpx;
+}
+.name{
+    margin-right: 20rpx;
+}
+.address{
+    color: rgb(104, 103, 103);
+}
+.a_bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+}
+.select_btn{
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 40rpx;
+}
+.select-left{
+    margin-left: 27rpx;
+    display: flex;
+    align-items: center;
+}
+.tip{
+    color: rgb(129, 127, 127);
+    font-size: 27rpx;
+}
+.select-right{
+    display: flex;
+    align-items: center;
+    margin-right: 12rpx;
+}
+.delete,.edit{
+    border-radius: 30rpx;
+    width: 115rpx;
+    height: 48rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27rpx;
+}
+.delete{
+    border: 2rpx solid rgba(0, 0, 0, 0.3);
+    margin-right: 15rpx;
+}
+.edit{
+    background: rgb(8, 23, 227);
+    border: 2rpx solid rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    color: rgb(254, 254, 254);
+}

@@ -3,5 +3,29 @@
        <view class="item  {{index==1?'selected':''}}" data-index="1" catchtap="selected">寄件地址</view>
        <view class="item  {{index==2?'selected':''}}" data-index="2" catchtap="selected">收件地址</view>
     </view>
+    <view class="list">
+      <view class="address_item">
+        <view class="a_top">
+          <image class="a_icon" src="../../assets/imgs/dz@2x.png" mode=""/>
+          <view class="info_box">
+             <view class="info">
+               <text class="name">张三</text>
+               <text class="phone">18201492133</text>
+             </view>
+             <view class="address">北京北京市顺义区 诺德花园1-1002</view>
+          </view>
+        </view>
+        <view class="a_bottom">
+           <view class="select-left">
+             <image class="select_btn" src="../../assets/imgs/select@2x.png" mode=""/>
+             <text class="tip">设为默认地址</text>
+           </view>
+           <view class="select-right">
+             <view class="delete">删除</view>
+             <view class="edit">编辑</view>
+           </view>
+        </view>
+      </view>
+    </view>
     <view class="add" data-page="addUserManagement" bindtap="goPage">新增</view>
 </view>
