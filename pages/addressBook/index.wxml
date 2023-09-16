@@ -27,5 +27,5 @@
         </view>
       </view>
     </view>
-    <view class="add" data-page="addUserManagement" bindtap="goPage">新增</view>
+    <view class="add" data-page="addressInfo" bindtap="goPage">新增</view>
 </view>

@@ -19,7 +19,7 @@
   border: 2rpx solid rgb(213, 213, 213);
   box-sizing: border-box;
   border-radius: 10rpx;
-  margin-top: 18rpx;
+  margin-top: 24rpx;
 }
 .query .query-top .search{
   height: 77rpx;

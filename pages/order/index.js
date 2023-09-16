@@ -2,6 +2,8 @@ let { getBookList, getDeliveryTime, getFreight, getForecast, getProductLTRatio, 
 let { formatFreightTime, checkIsNull, accAdd, accMul } = require('../../utils/util');
 Page({
     data: {
+        selected: false,
+
         notifyToast:false,
         // totalBillWeight:0,
         waybillNo:'',
@@ -740,136 +742,9 @@ Page({
     // 跳转相应页面
     goPage(e) {
         let page = e.currentTarget.dataset.page;
-        if (page == 'userInfo') {
-            let userType = e.currentTarget.dataset.type;
-            if (this.data.signStatus == '1' && userType == '0') return //已签约用户寄件地址不能手动选择
-            let userInfo = {};
-            if (userType == '0') {
-                userInfo = {
-                    book_province_name: this.data.sendUserInfo.bookProvinceName,
-                    book_province: this.data.sendUserInfo.bookProvince,
-                    book_city_name: this.data.sendUserInfo.bookCityName,
-                    book_city: this.data.sendUserInfo.bookCity,
-                    book_district_name: this.data.sendUserInfo.bookDistrictName,
-                    book_district: this.data.sendUserInfo.bookDistrict,
-                    book_street_name: this.data.sendUserInfo.bookStreetName,
-                    book_street: this.data.sendUserInfo.bookStreet,
-                    book_address: this.data.sendUserInfo.bookAddress,
-                    address_type: '0',
-                    landline_number: this.data.sendUserInfo.landlineNumber || '',
-                    phone: this.data.sendUserInfo.phone,
-                    name: this.data.sendUserInfo.name,
-                    consumer_name: this.data.sendUserInfo.consumerName,
-                    account_address_type: this.data.sendUserInfo.account_address_type,
-                    is_default: this.data.sendUserInfo.isDefault,
-                    id: this.data.sendUserInfo.id || '',
-                };
-            } else if (userType == '1') { 
-                userInfo = {
-                    book_province_name: this.data.reciverUserInfo.bookProvinceName,
-                    book_province: this.data.reciverUserInfo.bookProvince,
-                    book_city_name: this.data.reciverUserInfo.bookCityName,
-                    book_city: this.data.reciverUserInfo.bookCity,
-                    book_district_name: this.data.reciverUserInfo.bookDistrictName,
-                    book_district: this.data.reciverUserInfo.bookDistrict,
-                    book_street_name: this.data.reciverUserInfo.bookStreetName,
-                    book_street: this.data.reciverUserInfo.bookStreet,
-                    book_address: this.data.reciverUserInfo.bookAddress,
-                    address_type: '1',
-                    landline_number: this.data.reciverUserInfo.landlineNumber || '',
-                    phone: this.data.reciverUserInfo.phone,
-                    name: this.data.reciverUserInfo.name,
-                    consumer_name: this.data.reciverUserInfo.consumerName,
-                    account_address_type: this.data.reciverUserInfo.account_address_type,
-                    is_default: this.data.reciverUserInfo.isDefault,
-                    id: this.data.reciverUserInfo.id || '',
-                };
-            }
-            wx.navigateTo({
-                url: `/pages/userInfo/index?userType=${userType}&bookItem=${encodeURIComponent(JSON.stringify(userInfo))}`,
-            })
-        } else if (page == 'goods') {
-            let params = {
-                orderType:this.data.orderType,//bj ,zlyd
-                addedValueList: this.data.params.orderServiceDetailVo,
-                goodsName: this.data.params.goodsName, //物品名称
-                weight: this.data.params.totalWeight, //重量
-                length: this.data.params.length, //长度
-                width: this.data.params.width, //宽度
-                height: this.data.params.height, //高度
-                totalVolume: this.data.params.totalVolume, //体积
-                totalNum: this.data.params.totalNum, //件数
-                tmsImageInfos: this.data.params.tmsImageInfos, // 图片列表
-                customerRemark: this.data.params.customerRemark,
-            }
-            wx.navigateTo({
-                url: '/pages/goods/index?params=' + JSON.stringify(params),
-            })
-        } else if (page == 'insured') {
-            let orderServiceDetailVo = this.data.params.orderServiceDetailVo;
-            wx.navigateTo({
-                url: '/pagesB/insured/index?addValuedList=' + JSON.stringify(orderServiceDetailVo),
-            })
-        } else if (page == 'valueAdded') {
-            let orderServiceDetailVo = this.data.params.orderServiceDetailVo;
-            wx.navigateTo({
-                url: '/pagesB/valueAdded/index?addValuedList=' + JSON.stringify(orderServiceDetailVo),
-            })
-        } else if (page == 'success') {
-            if(checkIsNull(this.data.params.consignor)){
-                wx.showToast({
-                    title: '请完善寄件人信息！',
-                    icon: 'none',
-                    duration: 3000
-                });
-                return;
-            }
-            if(checkIsNull(this.data.params.consignee)){
-                wx.showToast({
-                    title: '请完善收件人信息！',
-                    icon: 'none',
-                    duration: 3000
-                });
-                return;
-            }
-            if(checkIsNull(this.data.params.totalWeight) || checkIsNull(this.data.params.goodsName) || checkIsNull(this.data.params.totalNum)){
-                wx.showToast({
-                    title: '请完善物品信息！',
-                    icon: 'none',
-                    duration: 3000
-                });
-                return;
-            }
-            if(checkIsNull(this.data.params.settlementType)){
-                wx.showToast({
-                    title: '请选择结算方式！',
-                    icon: 'none',
-                    duration: 3000
-                });
-                return;
-            }
-            if(checkIsNull(this.data.params.serviceProduct)){
-                wx.showToast({
-                    title: '请选择服务产品！',
-                    icon: 'none',
-                    duration: 3000
-                });
-                return;
-            }
-            // 下单
-            if (!this.data.btnActive) return;
-            this.onCreateOrder();
-        } else if (page == 'charter') {
-            wx.navigateTo({
-                url: '/pagesB/introduce/index?type=charter&title=电子契约条款',
-            })
-        } else if (page == 'addressBookList') {
-            let userType = e.currentTarget.dataset.type;
-            if (this.data.signStatus == '1' && userType == '0') return //已签约用户寄件地址不能手动选择
-            wx.navigateTo({
-                url: '/pagesC/addressBookList/index?addressType=' + userType,
-            })
-        }
+        wx.navigateTo({
+            url: `/pages/${page}/index`,
+        })
     },
     // 下单
     onCreateOrder() {

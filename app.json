@@ -12,7 +12,9 @@
     "pages/pay/index",
     "pages/codePay/index",
     "pages/itemType/index",
-    "pages/addressBook/index"
+    "pages/addressBook/index",
+    "pages/addressInfo/index",
+    "pages/goodInfo/index"
   ],
   "subPackages": [
     {

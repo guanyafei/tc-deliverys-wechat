@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "下单",
+  "navigationBarTitleText": "寄件信息",
   "usingComponents": {
     "timer":"/components/timer/index"
   }

@@ -219,63 +219,30 @@ Page({
   // 跳转相应页面
   goPage(e){
     let page =  e.currentTarget.dataset.page;
-    this.onFinished();
-    if(page == 'userManagement'){
-      let index =  e.currentTarget.dataset.index;
-      let item = this.data.list[index];
-      let params = {
-        book_province_name:item.bookProvinceName,
-        book_province:item.bookProvince,
-        book_city_name:item.bookCityName,
-        book_city:item.bookCity,
-        book_district_name:item.bookDistrictName,
-        book_district:item.bookDistrict,
-        book_street_name:item.bookStreetName,
-        book_street:item.bookStreet,
-        book_address:item.bookAddress,
-        address_type:item.addressType,
-        landline_number:item.landlineNumber,
-        phone:item.phone,
-        name:item.name,
-        id:item.id,
-        consumer_name:item.consumerName,
-        account_address_type:item.accountAddressType,
-        is_default:item.isDefault
-      }
-      wx.navigateTo({
-        url: `/pagesC/userManagement/index?bookItem=${JSON.stringify(params)}`,
-      })
-    }else if(page == 'addUserManagement'){
-      wx.navigateTo({
-        url: '/pagesC/userManagement/index',
-      })
-    }else if(page == 'detail'){
-      let index =  e.currentTarget.dataset.index;
-      let item = this.data.list[index];
-      let params = {
-        book_province_name:item.bookProvinceName,
-        book_province:item.bookProvince,
-        book_city_name:item.bookCityName,
-        book_city:item.bookCity,
-        book_district_name:item.bookDistrictName,
-        book_district:item.bookDistrict,
-        book_street_name:item.bookStreetName,
-        book_street:item.bookStreet,
-        book_address:item.bookAddress,
-        address_type:item.addressType,
-        landline_number:item.landlineNumber,
-        phone:item.phone,
-        name:item.name,
-        id:item.id,
-        consumer_name:item.consumerName,
-        account_address_type:item.accountAddressType,
-        is_default:item.isDefault
-      }
-      wx.navigateTo({
-        url: `/pagesC/userManagement/index?bookItem=${JSON.stringify(params)}&type=detail`,
-      })
-
-    }
+    // let index =  e.currentTarget.dataset.index;
+    // let item = this.data.list[index];
+    // let params = {
+    // book_province_name:item.bookProvinceName,
+    // book_province:item.bookProvince,
+    // book_city_name:item.bookCityName,
+    // book_city:item.bookCity,
+    // book_district_name:item.bookDistrictName,
+    // book_district:item.bookDistrict,
+    // book_street_name:item.bookStreetName,
+    // book_street:item.bookStreet,
+    // book_address:item.bookAddress,
+    // address_type:item.addressType,
+    // landline_number:item.landlineNumber,
+    // phone:item.phone,
+    // name:item.name,
+    // id:item.id,
+    // consumer_name:item.consumerName,
+    // account_address_type:item.accountAddressType,
+    // is_default:item.isDefault
+    // }
+    wx.navigateTo({
+    url: `/pages/${page}/index?bookItem=${JSON.stringify({})}`,
+    })
   },
   onReachBottom(){
     this.getList();

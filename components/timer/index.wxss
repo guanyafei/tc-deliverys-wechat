@@ -112,28 +112,25 @@
 }
 .time-picker .picker-bottom .cancle{
   width: 290rpx;
-  height: 96rpx;
+  height: 76.8rpx;
   border-radius: 54rpx;
   opacity: 0.9;
-  border: 2rpx solid #466FED;
+  border: 2rpx solid rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
-  line-height: 96rpx;
+  line-height: 76.8rpx;
   text-align: center;
   font-size: 32rpx;
-  font-family: PingFangSC-Medium, PingFang SC;
   font-weight: 500;
-  color: #466FED;
   }
   .time-picker .picker-bottom .sure{
     width: 290rpx;
-    height: 96rpx;
+    height: 76.8rpx;
     border-radius: 54rpx;
     opacity: 0.9;
-    background: #3260EB;
-    line-height: 96rpx;
+    background: rgb(8, 23, 227);
+    line-height: 76.8rpx;
     text-align: center;
     font-size: 32rpx;
-    font-family: PingFangSC-Medium, PingFang SC;
     font-weight: 500;
     color: #FFFFFF;
     }

@@ -2,7 +2,7 @@
 .my{
   background: #F2F3F7;
   height: 100vh;
-  padding: 18rpx 20rpx ;
+  padding: 24rpx 20rpx ;
 }
 .info{
     width: 100%;
