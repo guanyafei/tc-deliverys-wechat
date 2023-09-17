@@ -1,6 +1,12 @@
 let {getBookList,getDelBook,getEditBook,setDefaultAddress} = require('../../http/index.js');
 Page({
   data: {
+    selectDefault:false,
+    selectIcon: {
+        type: 'success_circle',
+        color: '#000000'
+    },
+
     index: 1,
     timer:null,
     list:[],
@@ -25,6 +31,7 @@ Page({
     })
   },
   onShow(){
+      return
     let userInfo = wx.getStorageSync('userInfo');
     let user_name = 'params.user_name';
     let page_size = 'params.pageSize';
@@ -39,6 +46,16 @@ Page({
       total:0,
     });
     this.getList();
+  },
+ // 默认
+ setDefault(){
+    this.data.selectDefault = !this.data.selectDefault;
+    let type = 'selectIcon.type';
+    let color = 'selectIcon.color';
+    this.setData({
+        [type]: this.data.selectDefault ? 'success' : 'success_circle',
+        [color]: this.data.selectDefault ? '#0817E3' : '#000000',
+    });
   },
   selected(e) {
     let index = e.currentTarget.dataset.index;

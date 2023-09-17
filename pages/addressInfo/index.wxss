@@ -105,10 +105,11 @@
   width: 576rpx;
   height: 76.8rpx;
   position: absolute;
-  bottom: 18rpx;
+  bottom: 60rpx;
   left: 50%;
   transform: translateX(-50%);
   background: rgb(8, 23, 227);
+  border-radius: 8rpx;
   margin: 0 auto;
   text-align: center;
   line-height: 76.8rpx;

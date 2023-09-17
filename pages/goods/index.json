@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "物品信息",
-  "usingComponents": {
-    "billingRules":"/components/billingRules/index",
-    "pack":"/components/pack/index",
-    "message":"/components/message/index"
-  }
-}

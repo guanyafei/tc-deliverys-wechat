@@ -1,8 +1,8 @@
 <!--index.wxml-->
 <view class="pay-success">
-  <image class="img" src="../../assets/images/pay-success@2x.png"></image>
+  <image class="img" src="../../assets/imgs/pay-success@2x.png"></image>
   <text class="tip">支付成功</text>
-  <text class="courier">安迅物流有限公司</text>
+  <text class="courier">*****公司</text>
   <view class="num-wrap">￥{{price}}</view>
   <view class="btn" data-page="query" bindtap="goPage">确定</view>
 </view>

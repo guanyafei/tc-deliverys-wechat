@@ -1,5 +1,4 @@
 .order{
-    padding: 0 20rpx;
     min-height: 100vh;
     background: #F2F3F7;
     overflow: auto;
@@ -7,7 +6,7 @@
 .order_info{
     background: rgb(255, 253, 253);
     border-radius: 10rpx;
-    margin-top: 24rpx;
+    margin: 24rpx 20rpx;
 }
 .item{
     border-bottom: 2rpx solid rgb(212, 210, 210);
@@ -64,7 +63,7 @@
 }
 .tel{
    margin-left: 19rpx;
-   color: rgb(153, 153, 153);
+   color: #6A6969;
 }
 .address{
     font-size: 26rpx;
@@ -122,3 +121,53 @@
     padding-right: 21rpx;
     font-size: 28rpx;
 }
+.summary{
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    z-index: 2;
+    background: rgb(255, 255, 255);
+    font-size: 31rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 19rpx 48rpx 60rpx;
+  }
+  .sum_left{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  }
+  .price{
+      display: flex;
+      align-items: center;
+      margin-bottom: 27rpx;
+  }
+  .num{
+      color: rgb(255, 0, 0);
+  }
+  .deal{
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      font-size: 27rpx;
+  }
+  .subtitle{
+      margin-left: 12rpx;
+      color: #8D8D8D;
+  }
+  .icon{
+      margin-left: -4rpx;
+  }
+  .desc{
+      color: #0817E3;
+  }
+  .sum_right{
+      padding: 15rpx 48rpx;
+      background: rgb(8, 23, 227);
+      border-radius: 8rpx;
+      color: rgb(255, 255, 255);
+      font-size: 31rpx;
+  }

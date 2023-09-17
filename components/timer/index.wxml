@@ -3,7 +3,7 @@
    <view class="wrap">
      <view class="picker-top">
       选择时间
-      <view class="close-wrap"bindtap="cancle"><image class="close" src="../../assets/images/close@2x.png"></image></view>
+      <view class="close-wrap"bindtap="cancle"><image class="close" src="../../assets/imgs/close@2x.png"></image></view>
      </view>
      <view class="picker-center">
        <view class="picker-left">
@@ -45,7 +45,6 @@
        </view>
      </view>
      <view class="picker-bottom">
-       <view class="cancle" bindtap="cancle">取消</view>
        <view class="sure" bindtap="save">确定</view>
      </view>
    </view>

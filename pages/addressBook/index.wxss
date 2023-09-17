@@ -90,12 +90,10 @@
     flex: 1;
 }
 .select_btn{
-    width: 36rpx;
-    height: 36rpx;
     margin-right: 40rpx;
 }
 .select-left{
-    margin-left: 27rpx;
+    margin-left: 24rpx;
     display: flex;
     align-items: center;
 }

@@ -24,7 +24,7 @@
     </view>
     <view class="pay-bottom">
       <view class="item-left">收款方</view>
-      <view class="item-right">安迅物流有限公司</view>
+      <view class="item-right">物流有限公司</view>
     </view>
   </view>
   <view class="btn" bindtap="goPage">立即支付</view>

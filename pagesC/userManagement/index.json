@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "联系人管理",
-  "usingComponents": {
-    "address":"/components/usefulAddress/index" 
-  }
-}

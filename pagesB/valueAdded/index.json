@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "增值服务",
-  "usingComponents": {
-    "addedDetail":"/components/addedDetail/index",
-    "pack":"/components/pack/index",
-    "cashBack":"/components/cashBack/index"
-  }
-}

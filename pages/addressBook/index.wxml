@@ -16,13 +16,13 @@
           </view>
         </view>
         <view class="a_bottom">
-           <view class="select-left">
-             <image class="select_btn" src="../../assets/imgs/select@2x.png" mode=""/>
+           <view class="select-left"  bindtap="setDefault">
+            <icon class="select_btn" type="{{selectIcon.type}}" size="24" color="{{selectIcon.color}}" ></icon>
              <text class="tip">设为默认地址</text>
            </view>
            <view class="select-right">
              <view class="delete">删除</view>
-             <view class="edit">编辑</view>
+             <view class="edit" data-page="addressInfo" bindtap="goPage">编辑</view>
            </view>
         </view>
       </view>

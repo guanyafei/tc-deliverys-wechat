@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<view class="remarks">
+    备注
+</view>

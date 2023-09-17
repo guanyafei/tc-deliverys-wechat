@@ -36,7 +36,7 @@
      </view>
   </view>
   <view class="issue">
-    <view class="issue_top">
+    <view class="issue_top"  data-page="faqs" bindtap="goPage">
       <image class="issue_img" src="../../assets/imgs/cjwt@2x.png"></image>
       <view class="issue_desc">
         <view class="issue_title">
@@ -47,7 +47,7 @@
         </view>
       </view>
     </view>
-    <view class="issue_bottom">
+    <view class="issue_bottom"   data-page="description" bindtap="goPage">
       <image class="issue_img" src="../../assets/imgs/cjwt@2x.png"></image>
       <view class="issue_desc">
         <view class="issue_title">

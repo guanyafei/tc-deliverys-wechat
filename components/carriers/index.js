@@ -189,11 +189,11 @@ Component({
     },
     // 保存时间
     save(){
-      this.triggerEvent('saveTimer',{selectTime:this.data.selectTime,dayIndex:this.data.dayIndex});
+      this.triggerEvent('saveCarriers',{selectTime:this.data.selectTime,dayIndex:this.data.dayIndex});
     },
     // 取消、关闭
     cancle(){
-      this.triggerEvent('cancleTimer');
+      this.triggerEvent('cancleCarriers');
     }
   }
 })

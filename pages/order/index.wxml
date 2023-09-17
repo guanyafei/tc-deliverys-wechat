@@ -44,16 +44,32 @@
         <input class="goods_text" type="text" maxlength="50" model:value="{{params.name}}" placeholder="请选择"  disabled="true" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 28rpx;text-align: right;"/>
         <image class="arrow" src="../../assets/imgs/ar@2x.png"></image>
     </view>
-    <view class="sender_info items">
+    <view class="sender_info items" bindtap="getCarriers">
         <text class="label">选择快递公司：</text>
         <input class="goods_text" type="text" maxlength="50" model:value="{{params.name}}" placeholder="请选择"  disabled="true" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 28rpx;text-align: right;"/>
         <image class="arrow" src="../../assets/imgs/ar@2x.png"></image>
     </view>
-    <view class="sender_info items">
+    <view class="sender_info items"  data-page="remarks" catchtap="goPage">
         <text class="label tip">备注：</text>
         <input class="goods_text" type="text" maxlength="50" model:value="{{params.name}}" placeholder="请选择"  disabled="true" placeholder-style="color: rgba(47, 47, 47, 0.4);font-size: 28rpx;text-align: right;"/>
         <image class="arrow" src="../../assets/imgs/ar@2x.png"></image>
     </view>
   </view>
-  <timer wx:if="{{showPicker}}"  siteCode="{{params.delivery_street_code}}"  bindsavetimer="savetimer" bindcancleTimer="cancleTimer"></timer>
+  <view class="summary">
+     <view class="sum_left">
+        <view class="price">
+          <text class="title">费用总计：</text>
+          <view class="num">100元</view>
+        </view>
+        <view class="deal" catchtap="selectDeal">
+            <icon class="icon" type="{{selectIcon.type}}" size="24" color="{{selectIcon.color}}" ></icon>
+            <!-- <icon type="success" size="24" color="#0817E3" ></icon> -->
+            <text class="subtitle">阅读并同意</text>
+            <text class="desc" data-page="protocol" catchtap="goPage">《寄件服务协议》</text>
+        </view>
+     </view>
+     <view class="sum_right"  data-page="paySuccess" catchtap="goPage">立即下单</view>
+  </view>
+  <timer wx:if="{{showPicker}}"  siteCode="{{params.delivery_street_code}}"  bindsaveTimer="saveTimer" bindcancleTimer="cancleTimer"></timer>
+  <carriers wx:if="{{showCarriers}}"  siteCode="{{params.delivery_street_code}}"  bindsaveCarriers="saveCarriers" bindcancleCarriers="cancleCarriers"></carriers>
 </view>

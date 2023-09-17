@@ -51,6 +51,7 @@ Page({
     addressType:'-1'
   },
   onLoad(e) {
+      return
     let userInfo = wx.getStorageSync('userInfo');
     let signStatus = userInfo.consumerSignStatus || '0';
     let user_name = 'params.user_name';
@@ -171,6 +172,8 @@ Page({
   },
   // 保存
   save(){
+    wx.navigateBack();
+    return
     if(checkIsNull(this.data.params.name)){
       wx.showToast({
         title: '姓名不允许为空！', 
@@ -179,31 +182,6 @@ Page({
       });
       return;
     }
-    if(checkIsNull(this.data.params.phone)){
-      wx.showToast({
-        title: '号码不允许为空！',
-        icon:'none', 
-        duration: 3000
-      });
-      return;
-    }
-    if(checkIsNull(this.data.params.book_province)){
-      wx.showToast({
-        title: '请选择联系人地址！',
-        icon:'none',
-        duration: 3000
-      });
-      return;
-    }
-    if(checkIsNull(this.data.params.book_address)){
-      wx.showToast({
-        title: '请输入联系人详细地址！',
-        icon:'none',
-        duration: 3000
-      });
-      return;
-    }
-    if(!this.data.btnActive) return;
     if(this.data.params.id){
       // 修改
       getEditBook(this.data.params).then(res=>{

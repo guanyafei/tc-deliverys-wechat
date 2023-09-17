@@ -1,0 +1,69 @@
+<!--index.wxml-->
+<view class="carriers">
+   <view class="wrap">
+     <view class="picker-top">
+      选择快递公司
+      <view class="close-wrap" bindtap="cancle"><image class="close" src="../../assets/imgs/close@2x.png"></image></view>
+     </view>
+     <view class="picker-center">
+        <view class="item">
+          <view class="item-left">
+            <image class="logo" src="../../assets/imgs/logo@2x.png"></image>
+            <view class="features">
+               <view class="f-top">
+                 <view class="name">YUNDA-韵达</view>
+                 <view class="traits">取件较好</view>
+               </view>
+               <view class="f-bottom">
+                 <view class="reminder">建议保留称重照片</view>
+                 <view class="reminder">限重50.00kg</view>
+               </view>
+            </view>
+          </view>
+          <view class="item-right">
+            <view class="price">
+              <view class="last-price">
+                 <view class="first-price">12元</view>
+                 <view class="discount-price">5.5元</view>
+              </view>
+              <view class="renewa-price">
+                续重<text class="next-price">￥2</text>/kg
+              </view>
+            </view>
+            <view class="radio"  bindtap="save">
+                <icon class="icon-small" type="circle" size="24"></icon>
+            </view>
+          </view>
+        </view>
+        <view class="item">
+          <view class="item-left">
+            <image class="logo" src="../../assets/imgs/logo@2x.png"></image>
+            <view class="features">
+               <view class="f-top">
+                 <view class="name">YUNDA-韵达</view>
+                 <view class="traits">取件较好</view>
+               </view>
+               <view class="f-bottom">
+                 <view class="reminder">建议保留称重照片</view>
+                 <view class="reminder">限重50.00kg</view>
+               </view>
+            </view>
+          </view>
+          <view class="item-right">
+            <view class="price">
+              <view class="last-price">
+                 <view class="first-price">12元</view>
+                 <view class="discount-price">5.5元</view>
+              </view>
+              <view class="renewa-price">
+                续重<text class="next-price">￥2</text>/kg
+              </view>
+            </view>
+            <view class="radio"  bindtap="save">
+                <icon class="icon-small" type="success" color="#0817E3" size="24"></icon>
+            </view>
+          </view>
+        </view>
+     </view>
+   </view>
+</view>

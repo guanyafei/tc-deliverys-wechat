@@ -100,7 +100,7 @@
   width: 576rpx;
   height: 76.8rpx;
   position: absolute;
-  bottom: 18rpx;
+  bottom: 60rpx;
   left: 50%;
   transform: translateX(-50%);
   background: rgb(8, 23, 227);
@@ -111,4 +111,5 @@
   font-family: PingFangSC-Medium, PingFang SC;
   font-weight: 500;
   color: rgb(255, 255, 255);
+  border-radius: 8rpx;
 }

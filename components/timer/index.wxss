@@ -9,41 +9,40 @@
   z-index: 9999;
 }
 .time-picker .wrap{
-  background: #FFFFFF;
-  border-radius: 32rpx 32rpx 0rpx 0rpx;    
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  overflow: hidden;
-  padding: 0 28rpx;
-  box-sizing: border-box;
+    background: #FFFFFF; 
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 .time-picker .picker-top{
-  height: 122rpx;
-  background: #FFFFFF;
-  font-size: 32rpx;
-  font-family: PingFangSC-Medium, PingFang SC;
-  font-weight: 500;
-  color: #252525;
-  line-height: 122rpx;
-  text-align: center;
-  position: relative;
+    background: rgb(238, 247, 255);
+    font-size: 31rpx;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #252525;
+    text-align: left;
+    position: relative;
+    padding: 19rpx 31rpx;
 }
 .time-picker .picker-top .close-wrap{
-  position: absolute;
-  top: 50%;
-  right: 0;
-  margin-top: -30rpx;
-  width: 60rpx;
-  height: 60rpx;
+    position: absolute;
+    top: 50%;
+    right: 15rpx;
+    margin-top: -30rpx;
+    width: 60rpx;
+    height: 60rpx;
+    text-align: center;
 }
 .time-picker .picker-top .close{
-  width: 26rpx;
-  height: 26rpx;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  margin-top: -13rpx;
+    width: 26rpx;
+    height: 26rpx;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    margin-top: -13rpx;
+    margin-right: -13rpx;
 }
 .time-picker .picker-center{
   display: flex;
@@ -106,31 +105,17 @@
 }
 .time-picker .picker-bottom{
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 74rpx;
-  margin-bottom: 22rpx;
+  margin-bottom: 60rpx;
 }
-.time-picker .picker-bottom .cancle{
-  width: 290rpx;
-  height: 76.8rpx;
-  border-radius: 54rpx;
-  opacity: 0.9;
-  border: 2rpx solid rgba(0, 0, 0, 0.3);
-  box-sizing: border-box;
-  line-height: 76.8rpx;
-  text-align: center;
-  font-size: 32rpx;
-  font-weight: 500;
-  }
   .time-picker .picker-bottom .sure{
-    width: 290rpx;
-    height: 76.8rpx;
-    border-radius: 54rpx;
-    opacity: 0.9;
+    width: 576rpx;
+    height: 77rpx;
+    line-height: 77rpx;
     background: rgb(8, 23, 227);
-    line-height: 76.8rpx;
+    border-radius: 8rpx;
     text-align: center;
-    font-size: 32rpx;
-    font-weight: 500;
-    color: #FFFFFF;
+    font-size: 31rpx;
+    color: rgb(255, 255, 255);
     }

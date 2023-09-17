@@ -3,7 +3,7 @@ Page({
   data: {
     orderNo:'',
     showToast:false,
-    price:''
+    price:'100'
   },
   onLoad(e) {
     let no = e.orderNo;
@@ -39,10 +39,8 @@ Page({
   // 跳页面
   goPage(e){
     let page =  e.currentTarget.dataset.page;
-    if(page == 'query'){
-      wx.navigateBack({
-        delta:2
-      })
-    }
+    wx.switchTab({
+        url: `/pages/${page}/index`,
+    })
   }
 })

@@ -27,6 +27,29 @@ Page({
   onLoad() {
   },
   onShow() {
+    this.setData({
+        list: [
+            {
+                status: 1,
+                orderNo: 2,
+                waybillNo: 3,
+                serviceProduct: 4,
+                consignor: '张三',
+                consignee: '李四',
+                sumPrice: '100',
+            },
+            {
+                status: 1,
+                orderNo: 2,
+                waybillNo: 3,
+                serviceProduct: 4,
+                consignor: '张三',
+                consignee: '李四',
+                sumPrice: '100',
+            }
+        ],
+    });
+      return
     if(checkIsNull(wx.getStorageSync('token'))){
       wx.showModal({
         title: '登录提示',
@@ -164,6 +187,7 @@ Page({
             }
         ],
     });
+    return
     getWaybillList(this.data.params).then(res => {
       if (res.code == 200) {
         let list = []; 

@@ -4,59 +4,15 @@
     "pages/my/index",
     "pages/query/index",
     "pages/order/index",
-    "pages/userInfo/index",
-    "pages/goods/index",
-    "pages/contraband/index",
-    "pages/success/index",
     "pages/paySuccess/index",
     "pages/pay/index",
-    "pages/codePay/index",
-    "pages/itemType/index",
     "pages/addressBook/index",
     "pages/addressInfo/index",
-    "pages/goodInfo/index"
-  ],
-  "subPackages": [
-    {
-      "root": "pagesB",
-      "pages": [
-        "insured/index",
-        "valueAdded/index",
-        "detail/index",
-        "personal/index",
-        "authenticate/index",
-        "login/index",
-        "register/index",
-        "codeLogin/index",
-        "service/index",
-        "introduce/index",
-        "serviceArea/index",
-        "news/index",
-        "aging/index",
-        "privacy/index",
-        "forget/index"
-      ]
-    },
-    {
-      "root": "pagesC",
-      "pages": [
-        "addressBook/index",
-        "addressBookList/index",
-        "userManagement/index",
-        "invoice/index",
-        "invoiceImg/index",
-        "invoiceApply/index",
-        "invoiceDetail/index",
-        "invoiceOrderList/index",
-        "invoiceHeader/index",
-        "invoiceHeaderDetail/index",
-        "invoiceSuccess/index",
-        "invoiceHeaderList/index",
-        "sendAddress/index",
-        "sendAddressApply/index",
-        "sendAddressMove/index"
-      ]
-    }
+    "pages/goodInfo/index",
+    "pages/description/index",
+    "pages/faqs/index",
+    "pages/remarks/index",
+    "pages/protocol/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -3,6 +3,12 @@ let { formatFreightTime, checkIsNull, accAdd, accMul } = require('../../utils/ut
 Page({
     data: {
         selected: false,
+        selectDeal:false,
+        selectIcon: {
+            type: 'success_circle',
+            color: '#000000'
+        },
+        showCarriers:false,
 
         notifyToast:false,
         // totalBillWeight:0,
@@ -120,6 +126,7 @@ Page({
         btnActive: false
     },
     onLoad(e) {
+        return
         let userInfo = wx.getStorageSync('userInfo');
         let sendAddressType = 'sendUserInfo.account_address_type';
         let reciverAddressType = 'reciverUserInfo.account_address_type';
@@ -269,6 +276,35 @@ Page({
                 })
             }
         });
+    },
+    // 选中协议
+    selectDeal(){
+       this.data.selectDeal = !this.data.selectDeal;
+       let type = 'selectIcon.type';
+       let color = 'selectIcon.color';
+       this.setData({
+            [type]: this.data.selectDeal ? 'success' : 'success_circle',
+            [color]: this.data.selectDeal ? '#0817E3' : '#000000',
+       });
+    },
+    
+    //显示承运商组件
+    getCarriers() {
+        this.setData({
+            showCarriers: true,
+        })
+    },
+    // 保存承运商
+    saveCarriers(e) {
+        this.setData({
+            showCarriers: false,
+        });
+    },
+    // 取消承运商选择
+    cancleCarriers(e) {
+        this.setData({
+            showCarriers: false,
+        })
     },
     //提交是否激活
     onBtnIsActive() {
@@ -717,7 +753,7 @@ Page({
         })
     },
     // 保存时间
-    savetimer(e) {
+    saveTimer(e) {
         let obj = {
             '0': '今天',
             '1': '明天',
